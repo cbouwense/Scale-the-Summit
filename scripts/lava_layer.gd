@@ -9,4 +9,4 @@ extends TileMapLayer
 func _process(delta: float) -> void:
 	if position.y < player.position.y:
 		print("lose")
-		game.reset_game()
+		#game.reset_game()

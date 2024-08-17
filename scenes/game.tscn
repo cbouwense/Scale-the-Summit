@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://dwd16j8cfwm5a"]
+[gd_scene load_steps=17 format=4 uid="uid://dwd16j8cfwm5a"]
 
 [ext_resource type="PackedScene" uid="uid://cfjem2d5didl" path="res://scenes/player.tscn" id="1_fxfde"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_hkq8d"]
@@ -12,6 +12,8 @@
 [ext_resource type="Script" path="res://scripts/end_turn.gd" id="8_7a370"]
 [ext_resource type="PackedScene" uid="uid://b306y7thyimeq" path="res://scenes/pickup.tscn" id="10_vqq0q"]
 [ext_resource type="PackedScene" uid="uid://dhu4v8yyin634" path="res://scenes/hazard.tscn" id="12_2xkfn"]
+[ext_resource type="PackedScene" uid="uid://f27dlqa585u4" path="res://scenes/avalanche.tscn" id="13_tyg7e"]
+[ext_resource type="PackedScene" uid="uid://bam0oul7jrs4p" path="res://scenes/wind.tscn" id="14_u6yex"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xicic"]
 texture = ExtResource("2_jmwwc")
@@ -182,6 +184,8 @@ discard_button_path = NodePath("MarginContainer/VBoxContainer/ActionButtons/Marg
 play_cards_button_path = NodePath("MarginContainer/VBoxContainer/ActionButtons/MarginContainer/HBoxContainer/PlayCards")
 end_turn_button_path = NodePath("MarginContainer/VBoxContainer/ActionButtons/MarginContainer/HBoxContainer/EndTurn")
 lava_layer_path = NodePath("../Layer0/LavaLayer")
+avalanche_path = NodePath("../Avalanche")
+wind_path = NodePath("../Wind")
 
 [node name="MarginContainer" type="MarginContainer" parent="CardManager"]
 anchors_preset = 15
@@ -206,6 +210,7 @@ size_flags_horizontal = 4
 alignment = 1
 
 [node name="DiscardCounts" type="Panel" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer2/CountsHBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(100, 150)
 layout_mode = 2
 script = ExtResource("6_epjhv")
@@ -284,6 +289,7 @@ custom_minimum_size = Vector2(260, 0)
 layout_mode = 2
 
 [node name="DeckCounts" type="Panel" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer2/CountsHBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(100, 150)
 layout_mode = 2
 script = ExtResource("6_epjhv")
@@ -384,56 +390,50 @@ size_flags_vertical = 4
 
 [node name="CardUp" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
+action = null
 
 [node name="CardDown" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
-text = "v"
 action = 1
 
 [node name="CardLeft" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
-text = "<"
 action = 2
 
 [node name="CardRight" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
-text = ">"
 action = 3
 
 [node name="CardUp2" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
+action = null
 
 [node name="CardDown2" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
-text = "v"
 action = 1
 
 [node name="CardLeft2" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
-text = "<"
 action = 2
 
 [node name="CardRight2" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
-text = ">"
 action = 3
 
 [node name="CardUp3" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
+action = null
 
 [node name="CardDown3" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
-text = "v"
 action = 1
 
 [node name="CardLeft3" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
-text = "<"
 action = 2
 
 [node name="CardRight3" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
-text = ">"
 action = 3
 
 [node name="ActionButtons" type="MarginContainer" parent="CardManager/MarginContainer/VBoxContainer"]
@@ -492,6 +492,14 @@ card_manager_path = NodePath("../CardManager")
 
 [node name="Hazard" parent="." instance=ExtResource("12_2xkfn")]
 position = Vector2(8, -56)
+
+[node name="Avalanche" parent="." instance=ExtResource("13_tyg7e")]
+position = Vector2(8, -167)
+player_path = NodePath("../Player")
+
+[node name="Wind" parent="." instance=ExtResource("14_u6yex")]
+position = Vector2(81, -56)
+player_path = NodePath("../Player")
 
 [connection signal="button_up" from="CardManager/MarginContainer/VBoxContainer/ActionButtons/MarginContainer/HBoxContainer/PlayCards" to="CardManager/MarginContainer/VBoxContainer/ActionButtons/MarginContainer/HBoxContainer/PlayCards" method="_on_button_up"]
 [connection signal="button_up" from="CardManager/MarginContainer/VBoxContainer/ActionButtons/MarginContainer/HBoxContainer/DiscardCards" to="CardManager/MarginContainer/VBoxContainer/ActionButtons/MarginContainer/HBoxContainer/DiscardCards" method="_on_button_up"]

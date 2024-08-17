@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://f27dlqa585u4"]
+
+[ext_resource type="Texture2D" uid="uid://cx8gfv4ty242m" path="res://assets/sprites/world_tileset.png" id="1_ow74q"]
+[ext_resource type="Script" path="res://scripts/avalanche.gd" id="1_x42c7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8g6en"]
+size = Vector2(16, 16)
+
+[node name="Avalanche" type="Area2D"]
+script = ExtResource("1_x42c7")
+raycast_path = NodePath("CollisionShape2D/RayCast2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8g6en")
+
+[node name="RayCast2D" type="RayCast2D" parent="CollisionShape2D"]
+target_position = Vector2(0, 200)
+collision_mask = 4
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ow74q")
+region_enabled = true
+region_rect = Rect2(0, 160, 16, 16)

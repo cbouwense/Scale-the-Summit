@@ -24,7 +24,16 @@ class_name CardManager extends Node
 @export var lava_layer_path: NodePath
 @onready var lava_layer = get_node(lava_layer_path)
 
+@export var avalanche_path: NodePath
+@onready var avalanche: Avalanche = get_node(avalanche_path)
+
+@export var wind_path: NodePath
+@onready var wind: Wind = get_node(wind_path)
+
 @onready var card_scene = preload("res://scenes/card.tscn")
+
+const avalanche_x_positions = [-24, -8, 8, 24, 42]
+const wind_y_positions = [-24, -8, 8, 24, 42, 58, 74, 90]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -102,8 +111,31 @@ func end_turn() -> void:
 	discard_button.set_disabled(true)
 	end_turn_button.set_disabled(true)
 	
+	# Sleep a little for some suspense
+	# TODO: maybe flash a "hazard turn"
+	await get_tree().create_timer(1).timeout
+	
+	# Dump the avalanche
+	avalanche.dump()
+	await get_tree().create_timer(1).timeout # Sleep
+	
+	# Move avalanche to a random spot
+	avalanche.position.x = avalanche_x_positions[randi_range(0, avalanche_x_positions.size() - 1)]
+	await get_tree().create_timer(1).timeout # Sleep
+	
+	# Gust the wind
+	wind.gust()
+	await get_tree().create_timer(1).timeout # Sleep
+	
+	# Move wind to a random spot
+	wind.position.y = wind_y_positions[randi_range(0, wind_y_positions.size() - 1)]
+	await get_tree().create_timer(1).timeout # Sleep
+	
 	# Move the lava up one tile
 	lava_layer.position.y -= 16
+	await get_tree().create_timer(1).timeout # Sleep
+	
+	
 	
 	# Discard all cards from hand
 	for card in hand.get_children():
