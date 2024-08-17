@@ -58,6 +58,7 @@ func draw_card():
 		
 		shuffle_cards()
 		
+		# At this point we now have cards in the deck, so call draw_card recursively to continue
 		draw_card()
 
 func play_cards():
