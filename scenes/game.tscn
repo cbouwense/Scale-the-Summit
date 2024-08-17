@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://dwd16j8cfwm5a"]
+[gd_scene load_steps=15 format=4 uid="uid://dwd16j8cfwm5a"]
 
 [ext_resource type="PackedScene" uid="uid://cfjem2d5didl" path="res://scenes/player.tscn" id="1_fxfde"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_hkq8d"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://scripts/discard_cards.gd" id="7_po0yu"]
 [ext_resource type="Script" path="res://scripts/end_turn.gd" id="8_7a370"]
 [ext_resource type="PackedScene" uid="uid://b306y7thyimeq" path="res://scenes/pickup.tscn" id="10_vqq0q"]
+[ext_resource type="PackedScene" uid="uid://dhu4v8yyin634" path="res://scenes/hazard.tscn" id="12_2xkfn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xicic"]
 texture = ExtResource("2_jmwwc")
@@ -488,6 +489,9 @@ card_manager_path = NodePath("../CardManager")
 [node name="Pickup2" parent="." instance=ExtResource("10_vqq0q")]
 position = Vector2(24, -72)
 card_manager_path = NodePath("../CardManager")
+
+[node name="Hazard" parent="." instance=ExtResource("12_2xkfn")]
+position = Vector2(8, -56)
 
 [connection signal="button_up" from="CardManager/MarginContainer/VBoxContainer/ActionButtons/MarginContainer/HBoxContainer/PlayCards" to="CardManager/MarginContainer/VBoxContainer/ActionButtons/MarginContainer/HBoxContainer/PlayCards" method="_on_button_up"]
 [connection signal="button_up" from="CardManager/MarginContainer/VBoxContainer/ActionButtons/MarginContainer/HBoxContainer/DiscardCards" to="CardManager/MarginContainer/VBoxContainer/ActionButtons/MarginContainer/HBoxContainer/DiscardCards" method="_on_button_up"]

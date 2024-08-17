@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhu4v8yyin634"]
+
+[ext_resource type="Texture2D" uid="uid://cx8gfv4ty242m" path="res://assets/sprites/world_tileset.png" id="1_egx2h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5u225"]
+size = Vector2(16, 16)
+
+[node name="Hazard" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5u225")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_egx2h")
+region_enabled = true
+region_rect = Rect2(128, 0, 16, 16)
