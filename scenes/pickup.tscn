@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b306y7thyimeq"]
+
+[ext_resource type="Script" path="res://scripts/pickup.gd" id="1_y8b4y"]
+[ext_resource type="Texture2D" uid="uid://cx8gfv4ty242m" path="res://assets/sprites/world_tileset.png" id="2_yfet7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8wn4"]
+size = Vector2(15, 15)
+
+[node name="Pickup" type="Area2D"]
+z_index = 1
+script = ExtResource("1_y8b4y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_w8wn4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_yfet7")
+region_enabled = true
+region_rect = Rect2(112, 32, 16, 16)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

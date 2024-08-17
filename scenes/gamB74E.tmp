@@ -1,0 +1,335 @@
+[gd_scene load_steps=9 format=4 uid="uid://dwd16j8cfwm5a"]
+
+[ext_resource type="PackedScene" uid="uid://cfjem2d5didl" path="res://scenes/player.tscn" id="1_fxfde"]
+[ext_resource type="Texture2D" uid="uid://cx8gfv4ty242m" path="res://assets/sprites/world_tileset.png" id="2_jmwwc"]
+[ext_resource type="Script" path="res://scripts/hand.gd" id="3_8vyo1"]
+[ext_resource type="Script" path="res://scripts/card.gd" id="3_kr0qk"]
+[ext_resource type="Script" path="res://scripts/deck.gd" id="3_ydw62"]
+[ext_resource type="Script" path="res://scripts/play_cards.gd" id="6_8jgbr"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xicic"]
+texture = ExtResource("2_jmwwc")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:0/0 = 0
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:0/0 = 0
+9:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -6.25, 8, 0.625, -8, -1.25)
+10:0/0 = 0
+10:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -6.125, 8, -5.75, 8, 0.625, -8, 0.375)
+11:0/0 = 0
+11:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -5.75, 8, -8, 8, -1.625, -8, 0.375)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:1/0 = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:1/0 = 0
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:1/0 = 0
+8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:1/0 = 0
+9:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -6.25, 8, 0.625, -8, -1.25)
+10:1/0 = 0
+10:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -6.125, 8, -5.75, 8, 0.625, -8, 0.375)
+11:1/0 = 0
+11:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -5.75, 8, -8, 8, -1.625, -8, 0.375)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:2/0 = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:2/0 = 0
+7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:2/0 = 0
+8:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:2/0 = 0
+9:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -6.25, 8, 0.625, -8, -1.25)
+10:2/0 = 0
+10:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -6.125, 8, -5.75, 8, 0.625, -8, 0.375)
+11:2/0 = 0
+11:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -5.75, 8, -8, 8, -1.625, -8, 0.375)
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+7:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:3/0 = 0
+9:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+7:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:4/0 = 0
+9:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+1:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+3:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+6:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+0:12/0 = 0
+1:12/0 = 0
+2:12/0 = 0
+3:12/0 = 0
+4:12/0 = 0
+0:13/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+3:13/0 = 0
+4:13/0 = 0
+5:13/0 = 0
+0:14/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+4:14/0 = 0
+0:15/0 = 0
+1:15/0 = 0
+2:15/0 = 0
+3:15/0 = 0
+2:4/size_in_atlas = Vector2i(3, 3)
+2:4/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_kviab"]
+physics_layer_0/collision_layer = 0
+physics_layer_0/collision_mask = 0
+sources/0 = SubResource("TileSetAtlasSource_xicic")
+
+[node name="Game" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_fxfde")]
+z_index = 1
+position = Vector2(8, -1)
+
+[node name="Layer0" type="TileMapLayer" parent="."]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD+////AAAGAAEAAAD/////AAAGAAEAAAAAAP//AAAGAAEAAAABAP//AAAGAAEAAAABAP7/AAAGAAEAAAAAAP7/AAAGAAEAAAD///7/AAAGAAEAAAD+//7/AAAGAAEAAAD+//3/AAAGAAEAAAD///3/AAAGAAEAAAAAAP3/AAAGAAEAAAABAP3/AAAGAAEAAAABAPz/AAAGAAEAAAAAAPz/AAAGAAEAAAD///z/AAAGAAEAAAD+//z/AAAGAAEAAAD+//v/AAAGAAEAAAD///v/AAAGAAEAAAAAAPv/AAAGAAEAAAABAPv/AAAGAAEAAAABAPr/AAAGAAEAAAAAAPr/AAAGAAEAAAD///r/AAAGAAEAAAD+//r/AAAGAAEAAAD+//n/AAAGAAEAAAD///n/AAAGAAEAAAAAAPn/AAAGAAEAAAABAPn/AAAGAAEAAAABAPj/AAAGAAEAAAAAAPj/AAAGAAEAAAD///j/AAAGAAEAAAD+//j/AAAGAAEAAAD+//f/AAAHAAEAAAD///f/AAAHAAEAAAAAAPf/AAAHAAEAAAABAPf/AAAHAAEAAAACAPf/AAAHAAEAAAACAPj/AAAGAAEAAAACAPn/AAAGAAEAAAACAPr/AAAGAAEAAAACAPv/AAAGAAEAAAACAPz/AAAGAAEAAAACAP3/AAAGAAEAAAACAP7/AAAGAAEAAAACAP//AAAGAAEAAAA=")
+tile_set = SubResource("TileSet_kviab")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 590
+
+[node name="Hand" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("3_8vyo1")
+
+[node name="Discard" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("3_8vyo1")
+
+[node name="Deck" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("3_ydw62")
+
+[node name="CardUp" type="Button" parent="CanvasLayer/MarginContainer/Deck"]
+custom_minimum_size = Vector2(50, 100)
+layout_mode = 2
+text = "^"
+script = ExtResource("3_kr0qk")
+
+[node name="CardDown" type="Button" parent="CanvasLayer/MarginContainer/Deck"]
+custom_minimum_size = Vector2(50, 100)
+layout_mode = 2
+keep_pressed_outside = true
+text = "v"
+script = ExtResource("3_kr0qk")
+action = 1
+
+[node name="CardLeft" type="Button" parent="CanvasLayer/MarginContainer/Deck"]
+custom_minimum_size = Vector2(50, 100)
+layout_mode = 2
+text = "<"
+script = ExtResource("3_kr0qk")
+action = 2
+
+[node name="CardRight" type="Button" parent="CanvasLayer/MarginContainer/Deck"]
+custom_minimum_size = Vector2(50, 100)
+layout_mode = 2
+text = ">"
+script = ExtResource("3_kr0qk")
+action = 3
+
+[node name="CardUp2" type="Button" parent="CanvasLayer/MarginContainer/Deck"]
+custom_minimum_size = Vector2(50, 100)
+layout_mode = 2
+text = "^"
+script = ExtResource("3_kr0qk")
+
+[node name="CardDown2" type="Button" parent="CanvasLayer/MarginContainer/Deck"]
+custom_minimum_size = Vector2(50, 100)
+layout_mode = 2
+keep_pressed_outside = true
+text = "v"
+script = ExtResource("3_kr0qk")
+action = 1
+
+[node name="CardLeft2" type="Button" parent="CanvasLayer/MarginContainer/Deck"]
+custom_minimum_size = Vector2(50, 100)
+layout_mode = 2
+text = "<"
+script = ExtResource("3_kr0qk")
+action = 2
+
+[node name="CardRight2" type="Button" parent="CanvasLayer/MarginContainer/Deck"]
+custom_minimum_size = Vector2(50, 100)
+layout_mode = 2
+text = ">"
+script = ExtResource("3_kr0qk")
+action = 3
+
+[node name="CardUp3" type="Button" parent="CanvasLayer/MarginContainer/Deck"]
+custom_minimum_size = Vector2(50, 100)
+layout_mode = 2
+text = "^"
+script = ExtResource("3_kr0qk")
+
+[node name="CardDown3" type="Button" parent="CanvasLayer/MarginContainer/Deck"]
+custom_minimum_size = Vector2(50, 100)
+layout_mode = 2
+keep_pressed_outside = true
+text = "v"
+script = ExtResource("3_kr0qk")
+action = 1
+
+[node name="CardLeft3" type="Button" parent="CanvasLayer/MarginContainer/Deck"]
+custom_minimum_size = Vector2(50, 100)
+layout_mode = 2
+text = "<"
+script = ExtResource("3_kr0qk")
+action = 2
+
+[node name="CardRight3" type="Button" parent="CanvasLayer/MarginContainer/Deck"]
+custom_minimum_size = Vector2(50, 100)
+layout_mode = 2
+text = ">"
+script = ExtResource("3_kr0qk")
+action = 3
+
+[node name="PlayCards" type="Button" parent="CanvasLayer/MarginContainer"]
+custom_minimum_size = Vector2(75, 25)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Play"
+script = ExtResource("6_8jgbr")
+
+[node name="DiscardCards" type="Button" parent="CanvasLayer/MarginContainer"]
+custom_minimum_size = Vector2(75, 25)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Play"
+script = ExtResource("6_8jgbr")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(8, -70)
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+
+[connection signal="button_down" from="CanvasLayer/MarginContainer/Deck/CardUp" to="CanvasLayer/MarginContainer/Deck/CardUp" method="_on_button_down"]
+[connection signal="button_down" from="CanvasLayer/MarginContainer/Deck/CardDown" to="CanvasLayer/MarginContainer/Deck/CardDown" method="_on_button_down"]
+[connection signal="button_down" from="CanvasLayer/MarginContainer/Deck/CardLeft" to="CanvasLayer/MarginContainer/Deck/CardLeft" method="_on_button_down"]
+[connection signal="button_down" from="CanvasLayer/MarginContainer/Deck/CardRight" to="CanvasLayer/MarginContainer/Deck/CardRight" method="_on_button_down"]
+[connection signal="button_down" from="CanvasLayer/MarginContainer/Deck/CardUp2" to="CanvasLayer/MarginContainer/Deck/CardUp2" method="_on_button_down"]
+[connection signal="button_down" from="CanvasLayer/MarginContainer/Deck/CardDown2" to="CanvasLayer/MarginContainer/Deck/CardDown2" method="_on_button_down"]
+[connection signal="button_down" from="CanvasLayer/MarginContainer/Deck/CardLeft2" to="CanvasLayer/MarginContainer/Deck/CardLeft2" method="_on_button_down"]
+[connection signal="button_down" from="CanvasLayer/MarginContainer/Deck/CardRight2" to="CanvasLayer/MarginContainer/Deck/CardRight2" method="_on_button_down"]
+[connection signal="button_down" from="CanvasLayer/MarginContainer/Deck/CardUp3" to="CanvasLayer/MarginContainer/Deck/CardUp3" method="_on_button_down"]
+[connection signal="button_down" from="CanvasLayer/MarginContainer/Deck/CardDown3" to="CanvasLayer/MarginContainer/Deck/CardDown3" method="_on_button_down"]
+[connection signal="button_down" from="CanvasLayer/MarginContainer/Deck/CardLeft3" to="CanvasLayer/MarginContainer/Deck/CardLeft3" method="_on_button_down"]
+[connection signal="button_down" from="CanvasLayer/MarginContainer/Deck/CardRight3" to="CanvasLayer/MarginContainer/Deck/CardRight3" method="_on_button_down"]
+[connection signal="button_up" from="CanvasLayer/MarginContainer/PlayCards" to="CanvasLayer/MarginContainer/PlayCards" method="_on_button_up"]
+[connection signal="button_up" from="CanvasLayer/MarginContainer/DiscardCards" to="CanvasLayer/MarginContainer/DiscardCards" method="_on_button_up"]
