@@ -516,6 +516,53 @@ position = Vector2(-24, -120)
 [node name="Hazard9" parent="Hazards" instance=ExtResource("12_2xkfn")]
 position = Vector2(8, -120)
 
+[node name="Walls" type="Node2D" parent="."]
+visible = false
+
+[node name="Wall" parent="Walls" instance=ExtResource("12_2xkfn")]
+position = Vector2(-88, -36)
+scale = Vector2(1, 5.435)
+
+[node name="Wall2" parent="Walls" instance=ExtResource("12_2xkfn")]
+position = Vector2(104, -36)
+scale = Vector2(1, 5.435)
+
+[node name="Wall3" parent="Walls" instance=ExtResource("12_2xkfn")]
+position = Vector2(-73, -162)
+scale = Vector2(1, 10)
+
+[node name="Wall4" parent="Walls" instance=ExtResource("12_2xkfn")]
+position = Vector2(88, -160)
+scale = Vector2(1, 10)
+
+[node name="Wall5" parent="Walls" instance=ExtResource("12_2xkfn")]
+position = Vector2(-40, -336)
+scale = Vector2(1, 11.965)
+
+[node name="Wall7" parent="Walls" instance=ExtResource("12_2xkfn")]
+position = Vector2(-56, -336)
+scale = Vector2(1, 11.965)
+
+[node name="Wall6" parent="Walls" instance=ExtResource("12_2xkfn")]
+position = Vector2(56, -336)
+scale = Vector2(1, 11.965)
+
+[node name="Wall8" parent="Walls" instance=ExtResource("12_2xkfn")]
+position = Vector2(73, -336)
+scale = Vector2(1, 11.965)
+
+[node name="Wall9" parent="Walls" instance=ExtResource("12_2xkfn")]
+position = Vector2(-24, -512)
+scale = Vector2(1, 11.965)
+
+[node name="Wall11" parent="Walls" instance=ExtResource("12_2xkfn")]
+position = Vector2(41, -512)
+scale = Vector2(1, 11.965)
+
+[node name="Wall12" parent="Walls" instance=ExtResource("12_2xkfn")]
+position = Vector2(8, 8)
+scale = Vector2(12, 1)
+
 [connection signal="button_up" from="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/PlayCards" to="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/PlayCards" method="_on_button_up"]
 [connection signal="button_up" from="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/DiscardCards" to="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/DiscardCards" method="_on_button_up"]
 [connection signal="button_up" from="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/EndTurn" to="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/EndTurn" method="_on_button_up"]

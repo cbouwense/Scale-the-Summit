@@ -15,15 +15,15 @@ func do_something(action: g.CardAction):
 			if !ray_cast_2d_up.is_colliding():
 				position.y -= 16
 		g.CardAction.DOWN:
-			if position.y < -1 and !ray_cast_2d_down.is_colliding():
+			if !ray_cast_2d_down.is_colliding():
 				position.y += 16
 		g.CardAction.LEFT:
-			if position.x >= -8 and !ray_cast_2d_left.is_colliding():
+			if !ray_cast_2d_left.is_colliding():
 				position.x -= 16
 		g.CardAction.RIGHT:
-			if position.x <= 24 and !ray_cast_2d_right.is_colliding():
+			if !ray_cast_2d_right.is_colliding():
 				position.x += 16
 
 	# Did we reach the top?
-	if position.y <= -140:
-		position = g.player_starting_position
+	if position.y <= -592:
+		print("win")
