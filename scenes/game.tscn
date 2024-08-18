@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://dwd16j8cfwm5a"]
+[gd_scene load_steps=17 format=4 uid="uid://dwd16j8cfwm5a"]
 
 [ext_resource type="PackedScene" uid="uid://cfjem2d5didl" path="res://scenes/player.tscn" id="1_fxfde"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_hkq8d"]
@@ -10,7 +10,6 @@
 [ext_resource type="Script" path="res://scripts/pile_counts.gd" id="6_epjhv"]
 [ext_resource type="Script" path="res://scripts/discard_cards.gd" id="7_po0yu"]
 [ext_resource type="Script" path="res://scripts/end_turn.gd" id="8_7a370"]
-[ext_resource type="Theme" uid="uid://gl5sre36a7ms" path="res://resources/main_theme.tres" id="8_nhsbt"]
 [ext_resource type="PackedScene" uid="uid://b306y7thyimeq" path="res://scenes/pickup.tscn" id="10_vqq0q"]
 [ext_resource type="PackedScene" uid="uid://dhu4v8yyin634" path="res://scenes/hazard.tscn" id="12_2xkfn"]
 [ext_resource type="PackedScene" uid="uid://f27dlqa585u4" path="res://scenes/avalanche.tscn" id="13_tyg7e"]
@@ -155,6 +154,10 @@ lava_layer_path = NodePath("Layer0/LavaLayer")
 z_index = 2
 position = Vector2(8, 0)
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+
 [node name="Layer0" type="TileMapLayer" parent="."]
 use_parent_material = true
 tile_map_data = PackedByteArray("AAABAP7/AAAGAAEAAAAAAP7/AAAGAAEAAAD///7/AAAGAAEAAAD+//7/AAAGAAEAAAD+//3/AAAGAAEAAAD///3/AAAGAAEAAAAAAP3/AAAGAAEAAAABAP3/AAAGAAEAAAABAPz/AAAGAAEAAAAAAPz/AAAGAAEAAAD///z/AAAGAAEAAAD+//z/AAAGAAEAAAD+//v/AAAGAAEAAAD///v/AAAGAAEAAAAAAPv/AAAGAAEAAAABAPv/AAAGAAEAAAABAPr/AAAGAAEAAAAAAPr/AAAGAAEAAAD///r/AAAGAAEAAAD+//r/AAAGAAEAAAD+//n/AAAGAAEAAAD///n/AAAGAAEAAAAAAPn/AAAGAAEAAAABAPn/AAAGAAEAAAABAPj/AAAGAAEAAAAAAPj/AAAGAAEAAAD///j/AAAGAAEAAAD+//j/AAAGAAEAAAACAPj/AAAGAAEAAAACAPn/AAAGAAEAAAACAPr/AAAGAAEAAAACAPv/AAAGAAEAAAACAPz/AAAGAAEAAAACAP3/AAAGAAEAAAACAP7/AAAGAAEAAAACAP//AAAGAAEAAAABAP//AAAGAAEAAAAAAP//AAAGAAEAAAD/////AAAGAAEAAAD+////AAAGAAEAAAD+//f/AAAGAAEAAAD///f/AAAGAAEAAAAAAPf/AAAGAAEAAAABAPf/AAAGAAEAAAACAPf/AAAGAAEAAAACAPb/AAAGAAEAAAABAPb/AAAGAAEAAAAAAPb/AAAGAAEAAAD///b/AAAGAAEAAAD+//b/AAAGAAEAAAD+//X/AAAGAAEAAAD///X/AAAGAAEAAAAAAPX/AAAGAAEAAAABAPX/AAAGAAEAAAACAPX/AAAGAAEAAAACAPT/AAAGAAEAAAABAPT/AAAGAAEAAAAAAPT/AAAGAAEAAAD///T/AAAGAAEAAAD+//T/AAAGAAEAAAD+//P/AAAGAAEAAAD///P/AAAGAAEAAAAAAPP/AAAGAAEAAAABAPP/AAAGAAEAAAACAPP/AAAGAAEAAAACAPL/AAAGAAEAAAABAPL/AAAGAAEAAAAAAPL/AAAGAAEAAAD///L/AAAGAAEAAAD+//L/AAAGAAEAAAD+//H/AAAGAAEAAAD///H/AAAGAAEAAAAAAPH/AAAGAAEAAAABAPH/AAAGAAEAAAACAPH/AAAGAAEAAAACAPD/AAAGAAEAAAABAPD/AAAGAAEAAAAAAPD/AAAGAAEAAAD///D/AAAGAAEAAAD+//D/AAAGAAEAAAD9////AAAGAAEAAAD9//7/AAAGAAEAAAD9//3/AAAGAAEAAAD9//z/AAAGAAEAAAD9//v/AAAGAAEAAAADAPv/AAAGAAEAAAADAPz/AAAGAAEAAAADAP3/AAAGAAEAAAADAP7/AAAGAAEAAAADAP//AAAGAAEAAAD8////AAAGAAEAAAD8//7/AAAGAAEAAAD8//3/AAAGAAEAAAD8//z/AAAGAAEAAAD8//v/AAAGAAEAAAAEAPv/AAAGAAEAAAAEAPz/AAAGAAEAAAAEAP3/AAAGAAEAAAAEAP7/AAAGAAEAAAAEAP//AAAGAAEAAAAFAP//AAAGAAEAAAAFAP7/AAAGAAEAAAAFAP3/AAAGAAEAAAAFAPz/AAAGAAEAAAAFAPv/AAAGAAEAAAD7//v/AAAGAAEAAAD7//z/AAAGAAEAAAD7//3/AAAGAAEAAAD7//7/AAAGAAEAAAD7////AAAGAAEAAAD8//r/AAAGAAEAAAD9//r/AAAGAAEAAAD8//n/AAAGAAEAAAD9//n/AAAGAAEAAAADAPn/AAAGAAEAAAAEAPn/AAAGAAEAAAAEAPr/AAAGAAEAAAADAPr/AAAGAAEAAAADAPj/AAAGAAEAAAAEAPj/AAAGAAEAAAAEAPf/AAAGAAEAAAADAPf/AAAGAAEAAAADAPb/AAAGAAEAAAAEAPb/AAAGAAEAAAD9//j/AAAGAAEAAAD8//j/AAAGAAEAAAD8//f/AAAGAAEAAAD9//f/AAAGAAEAAAD9//b/AAAGAAEAAAD8//b/AAAGAAEAAAD8//X/AAAGAAEAAAD9//X/AAAGAAEAAAD9//T/AAAGAAEAAAD8//T/AAAGAAEAAAD8//P/AAAGAAEAAAD9//P/AAAGAAEAAAD9//L/AAAGAAEAAAD8//L/AAAGAAEAAAD8//H/AAAGAAEAAAD9//H/AAAGAAEAAAADAPX/AAAGAAEAAAAEAPX/AAAGAAEAAAAEAPT/AAAGAAEAAAADAPT/AAAGAAEAAAADAPP/AAAGAAEAAAAEAPP/AAAGAAEAAAAEAPL/AAAGAAEAAAADAPL/AAAGAAEAAAADAPH/AAAGAAEAAAAEAPH/AAAGAAEAAAD+/+//AAAGAAEAAAD//+//AAAGAAEAAAAAAO//AAAGAAEAAAABAO//AAAGAAEAAAACAO//AAAGAAEAAAACAO7/AAAGAAEAAAABAO7/AAAGAAEAAAAAAO7/AAAGAAEAAAD//+7/AAAGAAEAAAD+/+7/AAAGAAEAAAD+/+3/AAAGAAEAAAD//+3/AAAGAAEAAAAAAO3/AAAGAAEAAAABAO3/AAAGAAEAAAACAO3/AAAGAAEAAAACAOz/AAAGAAEAAAABAOz/AAAGAAEAAAAAAOz/AAAGAAEAAAD//+z/AAAGAAEAAAD+/+z/AAAGAAEAAAD+/+v/AAAGAAEAAAD//+v/AAAGAAEAAAAAAOv/AAAGAAEAAAABAOv/AAAGAAEAAAACAOv/AAAGAAEAAAACAOr/AAAGAAEAAAABAOr/AAAGAAEAAAAAAOr/AAAGAAEAAAD//+r/AAAGAAEAAAD+/+r/AAAGAAEAAAD+/+n/AAAGAAEAAAD//+n/AAAGAAEAAAAAAOn/AAAGAAEAAAABAOn/AAAGAAEAAAACAOn/AAAGAAEAAAACAOj/AAAGAAEAAAABAOj/AAAGAAEAAAAAAOj/AAAGAAEAAAD//+j/AAAGAAEAAAD+/+j/AAAGAAEAAAD+/+f/AAAGAAEAAAD//+f/AAAGAAEAAAAAAOf/AAAGAAEAAAABAOf/AAAGAAEAAAACAOf/AAAGAAEAAAACAOb/AAAGAAEAAAABAOb/AAAGAAEAAAAAAOb/AAAGAAEAAAD//+b/AAAGAAEAAAD+/+b/AAAGAAEAAAD//+X/AAAGAAEAAAAAAOX/AAAGAAEAAAABAOX/AAAGAAEAAAABAOT/AAAGAAEAAAAAAOT/AAAGAAEAAAD//+T/AAAGAAEAAAD//+P/AAAGAAEAAAAAAOP/AAAGAAEAAAABAOP/AAAGAAEAAAABAOL/AAAGAAEAAAABAOH/AAAGAAEAAAAAAOH/AAAGAAEAAAAAAOL/AAAGAAEAAAD//+L/AAAGAAEAAAD//+H/AAAGAAEAAAD//+D/AAAGAAEAAAAAAOD/AAAGAAEAAAABAOD/AAAGAAEAAAABAN//AAAGAAEAAAAAAN//AAAGAAEAAAD//9//AAAGAAEAAAD//97/AAAGAAEAAAAAAN7/AAAGAAEAAAABAN7/AAAGAAEAAAABAN3/AAAGAAEAAAAAAN3/AAAGAAEAAAD//93/AAAGAAEAAAD//9z/AAAGAAEAAAAAANz/AAAGAAEAAAABANz/AAAGAAEAAAAAANv/AAAEAAgAAAD7/wAAAAAHAAAAAAD8/wAAAAAHAAAAAAD9/wAAAAAHAAAAAAD+/wAAAAAHAAAAAAD//wAAAAAHAAAAAAAAAAAAAAAHAAAAAAABAAAAAAAHAAAAAAACAAAAAAAHAAAAAAADAAAAAAAHAAAAAAAEAAAAAAAHAAAAAAAFAAAAAAAHAAAAAAAFAAEAAAAGAAIAAAAEAAEAAAAGAAIAAAADAAEAAAAGAAIAAAACAAEAAAAGAAIAAAABAAEAAAAGAAIAAAAAAAEAAAAGAAIAAAD//wEAAAAGAAIAAAD+/wEAAAAGAAIAAAD9/wEAAAAGAAIAAAD8/wEAAAAGAAIAAAD7/wEAAAAGAAIAAAA=")
@@ -185,8 +188,8 @@ discard_button_path = NodePath("MarginContainer/VBoxContainer/MarginContainer/Ma
 play_cards_button_path = NodePath("MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/PlayCards")
 end_turn_button_path = NodePath("MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/EndTurn")
 lava_layer_path = NodePath("../Layer0/LavaLayer")
-avalanche_path = NodePath("../Camera2D/Avalanche")
-wind_path = NodePath("../Camera2D/Wind")
+avalanche_path = NodePath("../Avalanche")
+wind_path = NodePath("../Wind")
 
 [node name="MarginContainer" type="MarginContainer" parent="CardManager"]
 anchors_preset = 15
@@ -366,6 +369,7 @@ text = "x0"
 [node name="MarginContainer" type="MarginContainer" parent="CardManager/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+theme_override_constants/margin_bottom = 10
 
 [node name="MainStuff" type="HBoxContainer" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
@@ -390,6 +394,7 @@ size_flags_vertical = 4
 
 [node name="CardUp" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
+action = 0
 
 [node name="CardDown" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
@@ -405,6 +410,7 @@ action = 3
 
 [node name="CardUp2" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
+action = 0
 
 [node name="CardDown2" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
@@ -420,6 +426,7 @@ action = 3
 
 [node name="CardUp3" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
+action = 0
 
 [node name="CardDown3" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
@@ -442,7 +449,6 @@ custom_minimum_size = Vector2(75, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-theme = ExtResource("8_nhsbt")
 text = "Play"
 script = ExtResource("6_8jgbr")
 card_manager_path = NodePath("../../../../../..")
@@ -453,7 +459,6 @@ custom_minimum_size = Vector2(75, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-theme = ExtResource("8_nhsbt")
 text = "Discard"
 script = ExtResource("7_po0yu")
 card_manager_path = NodePath("../../../../../..")
@@ -463,23 +468,9 @@ custom_minimum_size = Vector2(75, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-theme = ExtResource("8_nhsbt")
 text = "End turn"
 script = ExtResource("8_7a370")
 card_manager_path = NodePath("../../../../../..")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(8, -56)
-zoom = Vector2(3, 3)
-position_smoothing_enabled = true
-
-[node name="Avalanche" parent="Camera2D" instance=ExtResource("13_tyg7e")]
-position = Vector2(0, -111.61)
-player_path = NodePath("../../Player")
-
-[node name="Wind" parent="Camera2D" instance=ExtResource("14_u6yex")]
-position = Vector2(71, 0)
-player_path = NodePath("../../Player")
 
 [node name="Pickup" parent="." instance=ExtResource("10_vqq0q")]
 position = Vector2(-8, -72)
@@ -491,6 +482,14 @@ card_manager_path = NodePath("../CardManager")
 
 [node name="Hazard" parent="." instance=ExtResource("12_2xkfn")]
 position = Vector2(8, -56)
+
+[node name="Avalanche" parent="." instance=ExtResource("13_tyg7e")]
+position = Vector2(8, -736)
+player_path = NodePath("../Player")
+
+[node name="Wind" parent="." instance=ExtResource("14_u6yex")]
+position = Vector2(81, -8)
+player_path = NodePath("../Player")
 
 [connection signal="button_up" from="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/PlayCards" to="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/PlayCards" method="_on_button_up"]
 [connection signal="button_up" from="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/DiscardCards" to="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/DiscardCards" method="_on_button_up"]

@@ -106,24 +106,18 @@ func end_turn() -> void:
 	avalanche.dump()
 	await get_tree().create_timer(1).timeout # Sleep
 	
-	# Move avalanche to a random spot (NOTE: relative to camera)
-	var left_or_right = 1
-	if randi_range(0, 1) == 0:
-		left_or_right = -1  
-	var x_diff = randi_range(1, 3)
-	avalanche.position.x = left_or_right * 16 * x_diff
+	# Move avalanche to a random spot
+	var x_diff = randi_range(-3, 3)
+	avalanche.position.x = (16 * x_diff) + 8
 	await get_tree().create_timer(1).timeout # Sleep
 	
 	# Gust the wind
 	wind.gust()
 	await get_tree().create_timer(1).timeout # Sleep
 	
-	# Move wind to a random spot (NOTE: relative to camera)
-	var up_or_down = 1
-	if randi_range(0, 1) == 0:
-		up_or_down = -1  
-	var y_diff = randi_range(1, 3)
-	wind.position.y = up_or_down * 16 * y_diff
+	# Move wind to a random spot
+	var y_diff = randi_range(-3, 3)
+	wind.position.y = player.position.y + (16 * y_diff) + 8
 	await get_tree().create_timer(1).timeout # Sleep
 	
 	# Move the lava up one tile

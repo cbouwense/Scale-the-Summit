@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://bam0oul7jrs4p"]
 
 [ext_resource type="Script" path="res://scripts/wind.gd" id="1_y3yrg"]
-[ext_resource type="Texture2D" uid="uid://c4d3w5c7csgrx" path="res://assets/sprites/wind-Sheet.png" id="2_ptah0"]
+[ext_resource type="Texture2D" uid="uid://ct17l5xx3m6h1" path="res://assets/sprites/wind-Sheet.png" id="2_ptah0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pauab"]
 size = Vector2(15, 15)
