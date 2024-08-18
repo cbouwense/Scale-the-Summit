@@ -54,6 +54,7 @@ func shuffle_cards():
 func draw_card(index = null):
 	if deck.get_child_count() > 0: # If the deck has cards available
 		var top_card = deck.get_child(0) # then move the next card from the deck to the hand
+		top_card.button_pressed = false
 		top_card.reparent(hand)
 		if index:
 			hand.move_child(top_card, index)
@@ -98,6 +99,7 @@ func end_turn() -> void:
 	play_cards_button.set_disabled(true)
 	discard_button.set_disabled(true)
 	end_turn_button.set_disabled(true)
+	g.selected_cards.clear()
 	
 	# Discard all cards from hand
 	for card in hand.get_children():
@@ -157,6 +159,7 @@ func reset() -> void:
 	for card in discard.get_children():
 		card.reparent(deck)
 	
+	g.selected_cards.clear()
 	shuffle_cards()
 	draw_full_hand()
 
