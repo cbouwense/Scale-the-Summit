@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0jswppaqqusl"]
+[gd_scene load_steps=4 format=3 uid="uid://d0jswppaqqusl"]
 
+[ext_resource type="Theme" uid="uid://gl5sre36a7ms" path="res://resources/main_theme.tres" id="1_66e8f"]
 [ext_resource type="Script" path="res://scripts/card.gd" id="1_73i1e"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2fi84"]
 
 [node name="CardUp" type="Button"]
 custom_minimum_size = Vector2(50, 100)
+theme = ExtResource("1_66e8f")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2fi84")
 toggle_mode = true
 text = "^"
