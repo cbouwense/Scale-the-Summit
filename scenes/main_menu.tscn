@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfk0w0sdbrrkv"]
+
+[ext_resource type="Texture2D" uid="uid://bogaslfs4ru66" path="res://assets/sprites/card-sheet.png" id="1_2sac0"]
+[ext_resource type="Theme" uid="uid://gl5sre36a7ms" path="res://resources/main_theme.tres" id="1_e0gm0"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_xctgv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hk7kx"]
+atlas = ExtResource("1_2sac0")
+region = Rect2(0, 0, 70, 100)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xctgv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = -15.5
+offset_right = 20.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(140, 200)
+layout_mode = 2
+texture = SubResource("AtlasTexture_hk7kx")
+
+[node name="PlayButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(140, 50)
+layout_mode = 2
+theme = ExtResource("1_e0gm0")
+text = "Play"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(140, 50)
+layout_mode = 2
+theme = ExtResource("1_e0gm0")
+text = "Quit"
+
+[connection signal="button_down" from="VBoxContainer/PlayButton" to="." method="_on_play_button_button_down"]
+[connection signal="button_down" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_button_down"]
