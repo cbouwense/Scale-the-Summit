@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://dwd16j8cfwm5a"]
+[gd_scene load_steps=19 format=4 uid="uid://dwd16j8cfwm5a"]
 
 [ext_resource type="PackedScene" uid="uid://cfjem2d5didl" path="res://scenes/player.tscn" id="1_fxfde"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_hkq8d"]
@@ -145,17 +145,27 @@ physics_layer_0/collision_layer = 0
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_xicic")
 
-[node name="Game" type="Node2D"]
+[sub_resource type="Curve2D" id="Curve2D_ugrfe"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 8, -600, 0, 0, 0, 0, 8, 0)
+}
+point_count = 2
+
+[node name="Game" type="Node2D" node_paths=PackedStringArray("main_cam", "intro_path_follow")]
 script = ExtResource("1_hkq8d")
 player_path = NodePath("Player")
 card_manager_path = NodePath("CardManager")
 lava_layer_path = NodePath("Layer0/LavaLayer")
+intro_cam_path = NodePath("Path2D/PathFollow2D/IntroCamera2D")
+main_cam = NodePath("Player/Camera2D")
+intro_path_follow = NodePath("Path2D/PathFollow2D")
 
 [node name="Player" parent="." instance=ExtResource("1_fxfde")]
 z_index = 2
 position = Vector2(8, 0)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+enabled = false
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 
@@ -464,6 +474,7 @@ script = ExtResource("7_po0yu")
 card_manager_path = NodePath("../../../../../..")
 
 [node name="EndTurn" type="Button" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(75, 50)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -562,6 +573,19 @@ scale = Vector2(1, 11.965)
 [node name="Wall12" parent="Walls" instance=ExtResource("12_2xkfn")]
 position = Vector2(8, 8)
 scale = Vector2(12, 1)
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_ugrfe")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(8, -600)
+rotation = 1.5708
+loop = false
+
+[node name="IntroCamera2D" type="Camera2D" parent="Path2D/PathFollow2D"]
+position = Vector2(8, 0)
+rotation = -1.5708
+zoom = Vector2(3, 3)
 
 [connection signal="button_up" from="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/PlayCards" to="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/PlayCards" method="_on_button_up"]
 [connection signal="button_up" from="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/DiscardCards" to="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/DiscardCards" method="_on_button_up"]

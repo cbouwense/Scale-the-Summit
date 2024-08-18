@@ -35,9 +35,10 @@ class_name CardManager extends Node
 const avalanche_x_positions = [-24, -8, 8, 24, 42]
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func start_game() -> void:
 	initialize_deck()
 	reset()
+	end_turn_button.visible = true
 
 func initialize_deck():
 	for card in deck.get_children():
