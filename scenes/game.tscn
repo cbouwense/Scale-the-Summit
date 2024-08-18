@@ -420,6 +420,14 @@ action = 2
 layout_mode = 2
 action = 3
 
+[node name="CardRight4" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
+layout_mode = 2
+action = 3
+
+[node name="CardRight5" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
+layout_mode = 2
+action = 3
+
 [node name="CardUp2" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
 
@@ -441,14 +449,6 @@ layout_mode = 2
 [node name="CardDown3" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
 action = 1
-
-[node name="CardLeft3" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
-layout_mode = 2
-action = 2
-
-[node name="CardRight3" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
-layout_mode = 2
-action = 3
 
 [node name="HBoxContainer" type="VBoxContainer" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff"]
 layout_mode = 2
@@ -506,75 +506,99 @@ player_path = NodePath("../Player")
 
 [node name="Hazards" type="Node2D" parent="."]
 
-[node name="Hazard" parent="Hazards" instance=ExtResource("12_2xkfn")]
-position = Vector2(8, -56)
-
 [node name="Hazard4" parent="Hazards" instance=ExtResource("12_2xkfn")]
-position = Vector2(40, -88)
+position = Vector2(72, -184)
 
 [node name="Hazard5" parent="Hazards" instance=ExtResource("12_2xkfn")]
-position = Vector2(-24, -88)
+position = Vector2(-56, -184)
 
-[node name="Hazard6" parent="Hazards" instance=ExtResource("12_2xkfn")]
-position = Vector2(8, -88)
+[node name="Hazard10" parent="Hazards" instance=ExtResource("12_2xkfn")]
+position = Vector2(56, -168)
 
-[node name="Hazard7" parent="Hazards" instance=ExtResource("12_2xkfn")]
-position = Vector2(40, -120)
+[node name="Hazard12" parent="Hazards" instance=ExtResource("12_2xkfn")]
+position = Vector2(-8, -136)
 
-[node name="Hazard8" parent="Hazards" instance=ExtResource("12_2xkfn")]
+[node name="Hazard13" parent="Hazards" instance=ExtResource("12_2xkfn")]
 position = Vector2(-24, -120)
 
-[node name="Hazard9" parent="Hazards" instance=ExtResource("12_2xkfn")]
-position = Vector2(8, -120)
+[node name="Hazard11" parent="Hazards" instance=ExtResource("12_2xkfn")]
+position = Vector2(-40, -168)
 
-[node name="Walls" type="Node2D" parent="."]
+[node name="Hazard14" parent="Hazards" instance=ExtResource("12_2xkfn")]
+position = Vector2(24, -136)
+
+[node name="Hazard15" parent="Hazards" instance=ExtResource("12_2xkfn")]
+position = Vector2(40, -120)
+
+[node name="Hazard7" parent="Hazards" instance=ExtResource("12_2xkfn")]
+position = Vector2(40, -216)
+scale = Vector2(3, 1)
+
+[node name="Hazard8" parent="Hazards" instance=ExtResource("12_2xkfn")]
+position = Vector2(-24, -216)
+scale = Vector2(2.99, 1)
+
+[node name="Hazard16" parent="Hazards" instance=ExtResource("12_2xkfn")]
+position = Vector2(-40, -88)
+scale = Vector2(2.99, 1)
+
+[node name="Hazard17" parent="Hazards" instance=ExtResource("12_2xkfn")]
+position = Vector2(56, -88)
+scale = Vector2(2.99, 1)
+
+[node name="Hazard9" parent="Hazards" instance=ExtResource("12_2xkfn")]
+position = Vector2(8, -176)
+scale = Vector2(1, 6)
+
+[node name="Section2Walls" type="Node2D" parent="."]
 visible = false
 
-[node name="Wall" parent="Walls" instance=ExtResource("12_2xkfn")]
+[node name="Wall" parent="Section2Walls" instance=ExtResource("12_2xkfn")]
 position = Vector2(-88, -36)
 scale = Vector2(1, 5.435)
 
-[node name="Wall2" parent="Walls" instance=ExtResource("12_2xkfn")]
+[node name="Wall2" parent="Section2Walls" instance=ExtResource("12_2xkfn")]
 position = Vector2(104, -36)
 scale = Vector2(1, 5.435)
 
-[node name="Wall3" parent="Walls" instance=ExtResource("12_2xkfn")]
+[node name="Wall3" parent="Section2Walls" instance=ExtResource("12_2xkfn")]
 position = Vector2(-73, -162)
 scale = Vector2(1, 10)
 
-[node name="Wall4" parent="Walls" instance=ExtResource("12_2xkfn")]
+[node name="Wall4" parent="Section2Walls" instance=ExtResource("12_2xkfn")]
 position = Vector2(88, -160)
 scale = Vector2(1, 10)
 
-[node name="Wall5" parent="Walls" instance=ExtResource("12_2xkfn")]
+[node name="Wall5" parent="Section2Walls" instance=ExtResource("12_2xkfn")]
 position = Vector2(-40, -336)
 scale = Vector2(1, 11.965)
 
-[node name="Wall7" parent="Walls" instance=ExtResource("12_2xkfn")]
+[node name="Wall7" parent="Section2Walls" instance=ExtResource("12_2xkfn")]
 position = Vector2(-56, -336)
 scale = Vector2(1, 11.965)
 
-[node name="Wall6" parent="Walls" instance=ExtResource("12_2xkfn")]
+[node name="Wall6" parent="Section2Walls" instance=ExtResource("12_2xkfn")]
 position = Vector2(56, -336)
 scale = Vector2(1, 11.965)
 
-[node name="Wall8" parent="Walls" instance=ExtResource("12_2xkfn")]
+[node name="Wall8" parent="Section2Walls" instance=ExtResource("12_2xkfn")]
 position = Vector2(73, -336)
 scale = Vector2(1, 11.965)
 
-[node name="Wall9" parent="Walls" instance=ExtResource("12_2xkfn")]
+[node name="Wall9" parent="Section2Walls" instance=ExtResource("12_2xkfn")]
 position = Vector2(-24, -512)
 scale = Vector2(1, 11.965)
 
-[node name="Wall11" parent="Walls" instance=ExtResource("12_2xkfn")]
+[node name="Wall11" parent="Section2Walls" instance=ExtResource("12_2xkfn")]
 position = Vector2(41, -512)
 scale = Vector2(1, 11.965)
 
-[node name="Wall12" parent="Walls" instance=ExtResource("12_2xkfn")]
+[node name="Wall12" parent="Section2Walls" instance=ExtResource("12_2xkfn")]
 position = Vector2(8, 8)
 scale = Vector2(12, 1)
 
 [node name="Path2D" type="Path2D" parent="."]
+visible = false
 curve = SubResource("Curve2D_ugrfe")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
