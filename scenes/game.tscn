@@ -152,17 +152,17 @@ lava_layer_path = NodePath("Layer0/LavaLayer")
 
 [node name="Player" parent="." instance=ExtResource("1_fxfde")]
 z_index = 2
-position = Vector2(8, -31)
+position = Vector2(8, 0)
 
 [node name="Layer0" type="TileMapLayer" parent="."]
 use_parent_material = true
-tile_map_data = PackedByteArray("AAABAP7/AAAGAAEAAAAAAP7/AAAGAAEAAAD///7/AAAGAAEAAAD+//7/AAAGAAEAAAD+//3/AAAGAAEAAAD///3/AAAGAAEAAAAAAP3/AAAGAAEAAAABAP3/AAAGAAEAAAABAPz/AAAGAAEAAAAAAPz/AAAGAAEAAAD///z/AAAGAAEAAAD+//z/AAAGAAEAAAD+//v/AAAGAAEAAAD///v/AAAGAAEAAAAAAPv/AAAGAAEAAAABAPv/AAAGAAEAAAABAPr/AAAGAAEAAAAAAPr/AAAGAAEAAAD///r/AAAGAAEAAAD+//r/AAAGAAEAAAD+//n/AAAGAAEAAAD///n/AAAGAAEAAAAAAPn/AAAGAAEAAAABAPn/AAAGAAEAAAABAPj/AAAGAAEAAAAAAPj/AAAGAAEAAAD///j/AAAGAAEAAAD+//j/AAAGAAEAAAD+//f/AAAHAAEAAAD///f/AAAHAAEAAAAAAPf/AAAHAAEAAAABAPf/AAAHAAEAAAACAPf/AAAHAAEAAAACAPj/AAAGAAEAAAACAPn/AAAGAAEAAAACAPr/AAAGAAEAAAACAPv/AAAGAAEAAAACAPz/AAAGAAEAAAACAP3/AAAGAAEAAAACAP7/AAAGAAEAAAAAAPb/AAAEAAgAAAACAP//AAAGAAEAAAABAP//AAAGAAEAAAAAAP//AAAGAAEAAAD/////AAAGAAEAAAD+////AAAGAAEAAAA=")
+tile_map_data = PackedByteArray("AAABAP7/AAAGAAEAAAAAAP7/AAAGAAEAAAD///7/AAAGAAEAAAD+//7/AAAGAAEAAAD+//3/AAAGAAEAAAD///3/AAAGAAEAAAAAAP3/AAAGAAEAAAABAP3/AAAGAAEAAAABAPz/AAAGAAEAAAAAAPz/AAAGAAEAAAD///z/AAAGAAEAAAD+//z/AAAGAAEAAAD+//v/AAAGAAEAAAD///v/AAAGAAEAAAAAAPv/AAAGAAEAAAABAPv/AAAGAAEAAAABAPr/AAAGAAEAAAAAAPr/AAAGAAEAAAD///r/AAAGAAEAAAD+//r/AAAGAAEAAAD+//n/AAAGAAEAAAD///n/AAAGAAEAAAAAAPn/AAAGAAEAAAABAPn/AAAGAAEAAAABAPj/AAAGAAEAAAAAAPj/AAAGAAEAAAD///j/AAAGAAEAAAD+//j/AAAGAAEAAAACAPj/AAAGAAEAAAACAPn/AAAGAAEAAAACAPr/AAAGAAEAAAACAPv/AAAGAAEAAAACAPz/AAAGAAEAAAACAP3/AAAGAAEAAAACAP7/AAAGAAEAAAACAP//AAAGAAEAAAABAP//AAAGAAEAAAAAAP//AAAGAAEAAAD/////AAAGAAEAAAD+////AAAGAAEAAAD+//f/AAAGAAEAAAD///f/AAAGAAEAAAAAAPf/AAAGAAEAAAABAPf/AAAGAAEAAAACAPf/AAAGAAEAAAACAPb/AAAGAAEAAAABAPb/AAAGAAEAAAAAAPb/AAAGAAEAAAD///b/AAAGAAEAAAD+//b/AAAGAAEAAAD+//X/AAAGAAEAAAD///X/AAAGAAEAAAAAAPX/AAAGAAEAAAABAPX/AAAGAAEAAAACAPX/AAAGAAEAAAACAPT/AAAGAAEAAAABAPT/AAAGAAEAAAAAAPT/AAAGAAEAAAD///T/AAAGAAEAAAD+//T/AAAGAAEAAAD+//P/AAAGAAEAAAD///P/AAAGAAEAAAAAAPP/AAAGAAEAAAABAPP/AAAGAAEAAAACAPP/AAAGAAEAAAACAPL/AAAGAAEAAAABAPL/AAAGAAEAAAAAAPL/AAAGAAEAAAD///L/AAAGAAEAAAD+//L/AAAGAAEAAAD+//H/AAAGAAEAAAD///H/AAAGAAEAAAAAAPH/AAAGAAEAAAABAPH/AAAGAAEAAAACAPH/AAAGAAEAAAACAPD/AAAGAAEAAAABAPD/AAAGAAEAAAAAAPD/AAAGAAEAAAD///D/AAAGAAEAAAD+//D/AAAGAAEAAAD9////AAAGAAEAAAD9//7/AAAGAAEAAAD9//3/AAAGAAEAAAD9//z/AAAGAAEAAAD9//v/AAAGAAEAAAADAPv/AAAGAAEAAAADAPz/AAAGAAEAAAADAP3/AAAGAAEAAAADAP7/AAAGAAEAAAADAP//AAAGAAEAAAD8////AAAGAAEAAAD8//7/AAAGAAEAAAD8//3/AAAGAAEAAAD8//z/AAAGAAEAAAD8//v/AAAGAAEAAAAEAPv/AAAGAAEAAAAEAPz/AAAGAAEAAAAEAP3/AAAGAAEAAAAEAP7/AAAGAAEAAAAEAP//AAAGAAEAAAAFAP//AAAGAAEAAAAFAP7/AAAGAAEAAAAFAP3/AAAGAAEAAAAFAPz/AAAGAAEAAAAFAPv/AAAGAAEAAAD7//v/AAAGAAEAAAD7//z/AAAGAAEAAAD7//3/AAAGAAEAAAD7//7/AAAGAAEAAAD7////AAAGAAEAAAD8//r/AAAGAAEAAAD9//r/AAAGAAEAAAD8//n/AAAGAAEAAAD9//n/AAAGAAEAAAADAPn/AAAGAAEAAAAEAPn/AAAGAAEAAAAEAPr/AAAGAAEAAAADAPr/AAAGAAEAAAADAPj/AAAGAAEAAAAEAPj/AAAGAAEAAAAEAPf/AAAGAAEAAAADAPf/AAAGAAEAAAADAPb/AAAGAAEAAAAEAPb/AAAGAAEAAAD9//j/AAAGAAEAAAD8//j/AAAGAAEAAAD8//f/AAAGAAEAAAD9//f/AAAGAAEAAAD9//b/AAAGAAEAAAD8//b/AAAGAAEAAAD8//X/AAAGAAEAAAD9//X/AAAGAAEAAAD9//T/AAAGAAEAAAD8//T/AAAGAAEAAAD8//P/AAAGAAEAAAD9//P/AAAGAAEAAAD9//L/AAAGAAEAAAD8//L/AAAGAAEAAAD8//H/AAAGAAEAAAD9//H/AAAGAAEAAAADAPX/AAAGAAEAAAAEAPX/AAAGAAEAAAAEAPT/AAAGAAEAAAADAPT/AAAGAAEAAAADAPP/AAAGAAEAAAAEAPP/AAAGAAEAAAAEAPL/AAAGAAEAAAADAPL/AAAGAAEAAAADAPH/AAAGAAEAAAAEAPH/AAAGAAEAAAD+/+//AAAGAAEAAAD//+//AAAGAAEAAAAAAO//AAAGAAEAAAABAO//AAAGAAEAAAACAO//AAAGAAEAAAACAO7/AAAGAAEAAAABAO7/AAAGAAEAAAAAAO7/AAAGAAEAAAD//+7/AAAGAAEAAAD+/+7/AAAGAAEAAAD+/+3/AAAGAAEAAAD//+3/AAAGAAEAAAAAAO3/AAAGAAEAAAABAO3/AAAGAAEAAAACAO3/AAAGAAEAAAACAOz/AAAGAAEAAAABAOz/AAAGAAEAAAAAAOz/AAAGAAEAAAD//+z/AAAGAAEAAAD+/+z/AAAGAAEAAAD+/+v/AAAGAAEAAAD//+v/AAAGAAEAAAAAAOv/AAAGAAEAAAABAOv/AAAGAAEAAAACAOv/AAAGAAEAAAACAOr/AAAGAAEAAAABAOr/AAAGAAEAAAAAAOr/AAAGAAEAAAD//+r/AAAGAAEAAAD+/+r/AAAGAAEAAAD+/+n/AAAGAAEAAAD//+n/AAAGAAEAAAAAAOn/AAAGAAEAAAABAOn/AAAGAAEAAAACAOn/AAAGAAEAAAACAOj/AAAGAAEAAAABAOj/AAAGAAEAAAAAAOj/AAAGAAEAAAD//+j/AAAGAAEAAAD+/+j/AAAGAAEAAAD+/+f/AAAGAAEAAAD//+f/AAAGAAEAAAAAAOf/AAAGAAEAAAABAOf/AAAGAAEAAAACAOf/AAAGAAEAAAACAOb/AAAGAAEAAAABAOb/AAAGAAEAAAAAAOb/AAAGAAEAAAD//+b/AAAGAAEAAAD+/+b/AAAGAAEAAAD//+X/AAAGAAEAAAAAAOX/AAAGAAEAAAABAOX/AAAGAAEAAAABAOT/AAAGAAEAAAAAAOT/AAAGAAEAAAD//+T/AAAGAAEAAAD//+P/AAAGAAEAAAAAAOP/AAAGAAEAAAABAOP/AAAGAAEAAAABAOL/AAAGAAEAAAABAOH/AAAGAAEAAAAAAOH/AAAGAAEAAAAAAOL/AAAGAAEAAAD//+L/AAAGAAEAAAD//+H/AAAGAAEAAAD//+D/AAAGAAEAAAAAAOD/AAAGAAEAAAABAOD/AAAGAAEAAAABAN//AAAGAAEAAAAAAN//AAAGAAEAAAD//9//AAAGAAEAAAD//97/AAAGAAEAAAAAAN7/AAAGAAEAAAABAN7/AAAGAAEAAAABAN3/AAAGAAEAAAAAAN3/AAAGAAEAAAD//93/AAAGAAEAAAD//9z/AAAGAAEAAAAAANz/AAAGAAEAAAABANz/AAAGAAEAAAAAANv/AAAEAAgAAAD7/wAAAAAHAAAAAAD8/wAAAAAHAAAAAAD9/wAAAAAHAAAAAAD+/wAAAAAHAAAAAAD//wAAAAAHAAAAAAAAAAAAAAAHAAAAAAABAAAAAAAHAAAAAAACAAAAAAAHAAAAAAADAAAAAAAHAAAAAAAEAAAAAAAHAAAAAAAFAAAAAAAHAAAAAAAFAAEAAAAGAAIAAAAEAAEAAAAGAAIAAAADAAEAAAAGAAIAAAACAAEAAAAGAAIAAAABAAEAAAAGAAIAAAAAAAEAAAAGAAIAAAD//wEAAAAGAAIAAAD+/wEAAAAGAAIAAAD9/wEAAAAGAAIAAAD8/wEAAAAGAAIAAAD7/wEAAAAGAAIAAAA=")
 tile_set = SubResource("TileSet_kviab")
 
 [node name="LavaLayer" type="TileMapLayer" parent="Layer0"]
 z_index = 3
 use_parent_material = true
-position = Vector2(0, -8)
+position = Vector2(0, 32)
 tile_map_data = PackedByteArray("AAD7/wQAAAAEAAwAAAD8/wQAAAAEAAwAAAD9/wQAAAAEAAwAAAD+/wQAAAAEAAwAAAD//wQAAAAEAAwAAAAAAAQAAAAEAAwAAAABAAQAAAAEAAwAAAACAAQAAAAEAAwAAAADAAQAAAAEAAwAAAAEAAQAAAAEAAwAAAAFAAQAAAAEAAwAAAD7/wMAAAAEAAwAAAD8/wMAAAAEAAwAAAD9/wMAAAAEAAwAAAD+/wMAAAAEAAwAAAD//wMAAAAEAAwAAAAAAAMAAAAEAAwAAAABAAMAAAAEAAwAAAACAAMAAAAEAAwAAAADAAMAAAAEAAwAAAAEAAMAAAAEAAwAAAAFAAMAAAAEAAwAAAD7/wIAAAACAA0AAAD8/wIAAAACAA0AAAD9/wIAAAACAA0AAAD+/wIAAAACAA0AAAD//wIAAAACAA0AAAAAAAIAAAACAA0AAAABAAIAAAACAA0AAAACAAIAAAACAA0AAAADAAIAAAACAA0AAAAEAAIAAAACAA0AAAAFAAIAAAACAA0AAAAFAAEAAAACAA0AAAAEAAEAAAACAA0AAAADAAEAAAACAA0AAAACAAEAAAACAA0AAAABAAEAAAACAA0AAAAAAAEAAAACAA0AAAD//wEAAAACAA0AAAD+/wEAAAACAA0AAAD9/wEAAAACAA0AAAD8/wEAAAACAA0AAAD7/wEAAAACAA0AAAD7/wAAAAACAA0AAAD8/wAAAAACAA0AAAD9/wAAAAACAA0AAAD+/wAAAAACAA0AAAD//wAAAAACAA0AAAAAAAAAAAACAA0AAAABAAAAAAACAA0AAAACAAAAAAACAA0AAAADAAAAAAACAA0AAAAEAAAAAAACAA0AAAAFAAAAAAACAA0AAAD7////AAAFAAsAAAD8////AAAFAAsAAAD9////AAAFAAsAAAD+////AAAFAAsAAAD/////AAAFAAsAAAAAAP//AAAFAAsAAAABAP//AAAFAAsAAAACAP//AAAFAAsAAAADAP//AAAFAAsAAAAEAP//AAAFAAsAAAAFAP//AAAFAAsAAAD7/wUAAAAEAAwAAAD8/wUAAAAEAAwAAAD9/wUAAAAEAAwAAAD+/wUAAAAEAAwAAAD//wUAAAAEAAwAAAAAAAUAAAAEAAwAAAABAAUAAAAEAAwAAAACAAUAAAAEAAwAAAADAAUAAAAEAAwAAAAEAAUAAAAEAAwAAAAFAAUAAAAEAAwAAAAFAAYAAAAEAAwAAAAEAAYAAAAEAAwAAAADAAYAAAAEAAwAAAACAAYAAAAEAAwAAAABAAYAAAAEAAwAAAAAAAYAAAAEAAwAAAD//wYAAAAEAAwAAAD+/wYAAAAEAAwAAAD9/wYAAAAEAAwAAAD8/wYAAAAEAAwAAAD7/wYAAAAEAAwAAAD7/wcAAAAEAAwAAAD8/wcAAAAEAAwAAAD9/wcAAAAEAAwAAAD+/wcAAAAEAAwAAAD//wcAAAAEAAwAAAAAAAcAAAAEAAwAAAABAAcAAAAEAAwAAAACAAcAAAAEAAwAAAADAAcAAAAEAAwAAAAEAAcAAAAEAAwAAAAFAAcAAAAEAAwAAAAFAAgAAAAEAAwAAAAEAAgAAAAEAAwAAAADAAgAAAAEAAwAAAACAAgAAAAEAAwAAAABAAgAAAAEAAwAAAAAAAgAAAAEAAwAAAD//wgAAAAEAAwAAAD+/wgAAAAEAAwAAAD9/wgAAAAEAAwAAAD8/wgAAAAEAAwAAAD7/wgAAAAEAAwAAAD7/wkAAAAEAAwAAAD8/wkAAAAEAAwAAAD9/wkAAAAEAAwAAAD+/wkAAAAEAAwAAAD//wkAAAAEAAwAAAAAAAkAAAAEAAwAAAABAAkAAAAEAAwAAAACAAkAAAAEAAwAAAADAAkAAAAEAAwAAAAEAAkAAAAEAAwAAAAFAAkAAAAEAAwAAAAFAAoAAAAEAAwAAAAEAAoAAAAEAAwAAAADAAoAAAAEAAwAAAACAAoAAAAEAAwAAAABAAoAAAAEAAwAAAAAAAoAAAAEAAwAAAD//woAAAAEAAwAAAD+/woAAAAEAAwAAAD9/woAAAAEAAwAAAD8/woAAAAEAAwAAAD7/woAAAAEAAwAAAD7/wsAAAAEAAwAAAD8/wsAAAAEAAwAAAD9/wsAAAAEAAwAAAD+/wsAAAAEAAwAAAD//wsAAAAEAAwAAAAAAAsAAAAEAAwAAAABAAsAAAAEAAwAAAACAAsAAAAEAAwAAAADAAsAAAAEAAwAAAAEAAsAAAAEAAwAAAAFAAsAAAAEAAwAAAAFAAwAAAAEAAwAAAAEAAwAAAAEAAwAAAADAAwAAAAEAAwAAAACAAwAAAAEAAwAAAABAAwAAAAEAAwAAAAAAAwAAAAEAAwAAAD//wwAAAAEAAwAAAD+/wwAAAAEAAwAAAD9/wwAAAAEAAwAAAD8/wwAAAAEAAwAAAD7/wwAAAAEAAwAAAA=")
 tile_set = SubResource("TileSet_kviab")
 script = ExtResource("3_okq34")
@@ -177,15 +177,15 @@ tile_set = SubResource("TileSet_kviab")
 [node name="CardManager" type="CanvasLayer" parent="."]
 script = ExtResource("3_a81jr")
 player_path = NodePath("../Player")
-hand_path = NodePath("MarginContainer/VBoxContainer/MarginContainer/MarginContainer/Hand")
-deck_path = NodePath("MarginContainer/VBoxContainer/MarginContainer/MarginContainer/Deck")
-discard_path = NodePath("MarginContainer/VBoxContainer/MarginContainer/MarginContainer/Discard")
-discard_button_path = NodePath("MarginContainer/VBoxContainer/ActionButtons/MarginContainer/HBoxContainer/DiscardCards")
-play_cards_button_path = NodePath("MarginContainer/VBoxContainer/ActionButtons/MarginContainer/HBoxContainer/PlayCards")
-end_turn_button_path = NodePath("MarginContainer/VBoxContainer/ActionButtons/MarginContainer/HBoxContainer/EndTurn")
+hand_path = NodePath("MarginContainer/VBoxContainer/MarginContainer/MainStuff/Hand")
+deck_path = NodePath("MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck")
+discard_path = NodePath("MarginContainer/VBoxContainer/MarginContainer/MainStuff/Discard")
+discard_button_path = NodePath("MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/DiscardCards")
+play_cards_button_path = NodePath("MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/PlayCards")
+end_turn_button_path = NodePath("MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/EndTurn")
 lava_layer_path = NodePath("../Layer0/LavaLayer")
-avalanche_path = NodePath("../Avalanche")
-wind_path = NodePath("../Wind")
+avalanche_path = NodePath("../Camera2D/Avalanche")
+wind_path = NodePath("../Camera2D/Wind")
 
 [node name="MarginContainer" type="MarginContainer" parent="CardManager"]
 anchors_preset = 15
@@ -193,7 +193,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_bottom = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CardManager/MarginContainer"]
 layout_mode = 2
@@ -201,7 +200,6 @@ size_flags_vertical = 8
 
 [node name="MarginContainer2" type="MarginContainer" parent="CardManager/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_bottom = 50
 
 [node name="CountsHBoxContainer" type="HBoxContainer" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer2"]
 custom_minimum_size = Vector2(480, 0)
@@ -214,7 +212,7 @@ visible = false
 custom_minimum_size = Vector2(100, 150)
 layout_mode = 2
 script = ExtResource("6_epjhv")
-pile_path = NodePath("../../../MarginContainer/MarginContainer/Discard")
+pile_path = NodePath("../../../MarginContainer/MainStuff/Discard")
 up_amount_path = NodePath("GridContainer/UpAmount")
 down_amount_path = NodePath("GridContainer/DownAmount")
 left_amount_path = NodePath("GridContainer/LeftAmount")
@@ -293,7 +291,7 @@ visible = false
 custom_minimum_size = Vector2(100, 150)
 layout_mode = 2
 script = ExtResource("6_epjhv")
-pile_path = NodePath("../../../MarginContainer/MarginContainer/Deck")
+pile_path = NodePath("../../../MarginContainer/MainStuff/Deck")
 up_amount_path = NodePath("GridContainer/UpAmount")
 down_amount_path = NodePath("GridContainer/DownAmount")
 left_amount_path = NodePath("GridContainer/LeftAmount")
@@ -368,89 +366,77 @@ text = "x0"
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer"]
+[node name="MainStuff" type="HBoxContainer" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
+alignment = 2
 
-[node name="Hand" type="HBoxContainer" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MarginContainer"]
+[node name="Hand" type="HBoxContainer" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Discard" type="HBoxContainer" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MarginContainer"]
+[node name="Discard" type="HBoxContainer" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Deck" type="HBoxContainer" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MarginContainer"]
+[node name="Deck" type="HBoxContainer" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="CardUp" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/Deck" instance=ExtResource("4_uyotw")]
+[node name="CardUp" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
-action = null
 
-[node name="CardDown" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/Deck" instance=ExtResource("4_uyotw")]
-layout_mode = 2
-action = 1
-
-[node name="CardLeft" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/Deck" instance=ExtResource("4_uyotw")]
-layout_mode = 2
-action = 2
-
-[node name="CardRight" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/Deck" instance=ExtResource("4_uyotw")]
-layout_mode = 2
-action = 3
-
-[node name="CardUp2" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/Deck" instance=ExtResource("4_uyotw")]
-layout_mode = 2
-action = null
-
-[node name="CardDown2" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/Deck" instance=ExtResource("4_uyotw")]
+[node name="CardDown" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
 action = 1
 
-[node name="CardLeft2" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/Deck" instance=ExtResource("4_uyotw")]
+[node name="CardLeft" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
 action = 2
 
-[node name="CardRight2" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/Deck" instance=ExtResource("4_uyotw")]
+[node name="CardRight" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
 action = 3
 
-[node name="CardUp3" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/Deck" instance=ExtResource("4_uyotw")]
+[node name="CardUp2" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
-action = null
 
-[node name="CardDown3" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/Deck" instance=ExtResource("4_uyotw")]
+[node name="CardDown2" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
 action = 1
 
-[node name="CardLeft3" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/Deck" instance=ExtResource("4_uyotw")]
+[node name="CardLeft2" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
 action = 2
 
-[node name="CardRight3" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MarginContainer/Deck" instance=ExtResource("4_uyotw")]
+[node name="CardRight2" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
 action = 3
 
-[node name="ActionButtons" type="MarginContainer" parent="CardManager/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 100)
+[node name="CardUp3" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
-theme_override_constants/margin_left = 80
-theme_override_constants/margin_right = 80
 
-[node name="MarginContainer" type="MarginContainer" parent="CardManager/MarginContainer/VBoxContainer/ActionButtons"]
+[node name="CardDown3" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
-theme_override_constants/margin_bottom = 30
+action = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CardManager/MarginContainer/VBoxContainer/ActionButtons/MarginContainer"]
+[node name="CardLeft3" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
-alignment = 1
+action = 2
 
-[node name="PlayCards" type="Button" parent="CardManager/MarginContainer/VBoxContainer/ActionButtons/MarginContainer/HBoxContainer"]
+[node name="CardRight3" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
+layout_mode = 2
+action = 3
+
+[node name="HBoxContainer" type="VBoxContainer" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff"]
+layout_mode = 2
+
+[node name="PlayCards" type="Button" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(75, 50)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -459,7 +445,8 @@ text = "Play"
 script = ExtResource("6_8jgbr")
 card_manager_path = NodePath("../../../../../..")
 
-[node name="DiscardCards" type="Button" parent="CardManager/MarginContainer/VBoxContainer/ActionButtons/MarginContainer/HBoxContainer"]
+[node name="DiscardCards" type="Button" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(75, 50)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -468,7 +455,7 @@ text = "Discard"
 script = ExtResource("7_po0yu")
 card_manager_path = NodePath("../../../../../..")
 
-[node name="EndTurn" type="Button" parent="CardManager/MarginContainer/VBoxContainer/ActionButtons/MarginContainer/HBoxContainer"]
+[node name="EndTurn" type="Button" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer"]
 custom_minimum_size = Vector2(75, 50)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -478,9 +465,17 @@ script = ExtResource("8_7a370")
 card_manager_path = NodePath("../../../../../..")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(8, -54)
+position = Vector2(8, -56)
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true
+
+[node name="Avalanche" parent="Camera2D" instance=ExtResource("13_tyg7e")]
+position = Vector2(0, -111.61)
+player_path = NodePath("../../Player")
+
+[node name="Wind" parent="Camera2D" instance=ExtResource("14_u6yex")]
+position = Vector2(71, 0)
+player_path = NodePath("../../Player")
 
 [node name="Pickup" parent="." instance=ExtResource("10_vqq0q")]
 position = Vector2(-8, -72)
@@ -493,14 +488,6 @@ card_manager_path = NodePath("../CardManager")
 [node name="Hazard" parent="." instance=ExtResource("12_2xkfn")]
 position = Vector2(8, -56)
 
-[node name="Avalanche" parent="." instance=ExtResource("13_tyg7e")]
-position = Vector2(8, -167)
-player_path = NodePath("../Player")
-
-[node name="Wind" parent="." instance=ExtResource("14_u6yex")]
-position = Vector2(81, -56)
-player_path = NodePath("../Player")
-
-[connection signal="button_up" from="CardManager/MarginContainer/VBoxContainer/ActionButtons/MarginContainer/HBoxContainer/PlayCards" to="CardManager/MarginContainer/VBoxContainer/ActionButtons/MarginContainer/HBoxContainer/PlayCards" method="_on_button_up"]
-[connection signal="button_up" from="CardManager/MarginContainer/VBoxContainer/ActionButtons/MarginContainer/HBoxContainer/DiscardCards" to="CardManager/MarginContainer/VBoxContainer/ActionButtons/MarginContainer/HBoxContainer/DiscardCards" method="_on_button_up"]
-[connection signal="button_up" from="CardManager/MarginContainer/VBoxContainer/ActionButtons/MarginContainer/HBoxContainer/EndTurn" to="CardManager/MarginContainer/VBoxContainer/ActionButtons/MarginContainer/HBoxContainer/EndTurn" method="_on_button_up"]
+[connection signal="button_up" from="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/PlayCards" to="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/PlayCards" method="_on_button_up"]
+[connection signal="button_up" from="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/DiscardCards" to="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/DiscardCards" method="_on_button_up"]
+[connection signal="button_up" from="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/EndTurn" to="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/EndTurn" method="_on_button_up"]

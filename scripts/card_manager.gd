@@ -22,7 +22,7 @@ class_name CardManager extends Node
 @onready var end_turn_button: Button = get_node(end_turn_button_path)
 
 @export var lava_layer_path: NodePath
-@onready var lava_layer = get_node(lava_layer_path)
+@onready var lava_layer: TileMapLayer = get_node(lava_layer_path)
 
 @export var avalanche_path: NodePath
 @onready var avalanche: Avalanche = get_node(avalanche_path)
@@ -33,7 +33,6 @@ class_name CardManager extends Node
 @onready var card_scene = preload("res://scenes/card.tscn")
 
 const avalanche_x_positions = [-24, -8, 8, 24, 42]
-const wind_y_positions = [-24, -8, 8, 24, 42, 58, 74, 90]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -42,14 +41,7 @@ func _ready() -> void:
 
 func initialize_deck():
 	for card in deck.get_children():
-		card.initialize(player, self)
-
-func add_card_to_selected(card):
-	print("poopae")
-	if g.selected_cards.has(card):
-		g.selected_cards.erase(card)
-	else:
-		g.selected_cards.push_back(card)
+		card.initialize(player, discard, self)
 
 func shuffle_cards():
 	var cards_in_deck = deck.get_children()
@@ -70,18 +62,13 @@ func draw_card():
 		# At this point we now have cards in the deck, so call draw_card recursively to continue
 		draw_card()
 
-func play_cards():
-	for card in g.selected_cards:
-		card.make_player_do_something.emit(card.action)
-		
-		# Move from hand to the Discard
-		card.reparent(discard)
-		card.set_pressed(false)
-		
-		# Sleep
-		await get_tree().create_timer(.2).timeout
-	
-	g.selected_cards.clear()
+func play_card(card: Card):
+	#for card in g.selected_cards:
+	#card.set_pressed(false)
+	#g.selected_cards.clear()
+	card.make_player_do_something.emit(card.action)
+	reparent(discard) # Move from hand to the Discard
+	await get_tree().create_timer(.2).timeout # Sleep
 
 func discard_cards() -> void:
 	var selected_len = g.selected_cards.size()
@@ -101,7 +88,7 @@ func discard_cards() -> void:
 		# Sleep
 		await get_tree().create_timer(.2).timeout
 		
-	g.selected_cards.clear()
+	#g.selected_cards.clear()
 	
 	discard_button.set_disabled(true)
 
@@ -119,23 +106,29 @@ func end_turn() -> void:
 	avalanche.dump()
 	await get_tree().create_timer(1).timeout # Sleep
 	
-	# Move avalanche to a random spot
-	avalanche.position.x = avalanche_x_positions[randi_range(0, avalanche_x_positions.size() - 1)]
+	# Move avalanche to a random spot (NOTE: relative to camera)
+	var left_or_right = 1
+	if randi_range(0, 1) == 0:
+		left_or_right = -1  
+	var x_diff = randi_range(1, 3)
+	avalanche.position.x = left_or_right * 16 * x_diff
 	await get_tree().create_timer(1).timeout # Sleep
 	
 	# Gust the wind
 	wind.gust()
 	await get_tree().create_timer(1).timeout # Sleep
 	
-	# Move wind to a random spot
-	wind.position.y = wind_y_positions[randi_range(0, wind_y_positions.size() - 1)]
+	# Move wind to a random spot (NOTE: relative to camera)
+	var up_or_down = 1
+	if randi_range(0, 1) == 0:
+		up_or_down = -1  
+	var y_diff = randi_range(1, 3)
+	wind.position.y = up_or_down * 16 * y_diff
 	await get_tree().create_timer(1).timeout # Sleep
 	
 	# Move the lava up one tile
 	lava_layer.position.y -= 16
 	await get_tree().create_timer(1).timeout # Sleep
-	
-	
 	
 	# Discard all cards from hand
 	for card in hand.get_children():
@@ -147,6 +140,9 @@ func end_turn() -> void:
 	
 	draw_full_hand()
 
+	# Replenish discards
+	g.discards_left_this_turn = 3
+
 	# Re-enable buttons
 	play_cards_button.set_disabled(false)
 	discard_button.set_disabled(false)
@@ -157,8 +153,7 @@ func draw_full_hand():
 	while hand.get_children().size() < 5:
 		draw_card()
 		
-		# Sleep
-		await get_tree().create_timer(.2).timeout
+		await get_tree().create_timer(.2).timeout # Sleep
 
 func reset() -> void:
 	# Get all of the cards from the hand and put them back into the deck
@@ -172,7 +167,6 @@ func reset() -> void:
 
 func add_new_card_to_deck(action: g.CardAction):
 	var new_card: Card = card_scene.instantiate()
-	new_card.initialize(player, self)
+	new_card.initialize(player, discard, self)
 	new_card.action = action
-	
 	deck.add_child(new_card)

@@ -1,34 +1,37 @@
-class_name Card extends Button
+class_name Card extends TextureButton
 
 signal make_player_do_something
-signal card_selected
 
-@export var action: g.CardAction #= g.CardAction.RIGHT
+@export var action: g.CardAction
+var player: Player
+var discard: Container
+var card_manager: CardManager
 
-#var player_path: NodePath
-var player: Player# = get_node(player_path)
-
-#var card_manager_path: NodePath
-var card_manager: CardManager#= get_node(card_manager_path)
-
-func initialize(_player: Player, _card_manager: CardManager):
+func initialize(_player: Player, _discard: Container, _card_manager: CardManager):
 	player = _player
+	discard = _discard
 	card_manager = _card_manager
-	# Connect the signal to a method on the player
+	
 	connect("make_player_do_something", player.do_something)
-	connect("card_selected", card_manager.add_card_to_selected)
 	
 	match action:
 		g.CardAction.UP:
-			text = "^"
+			$Label.text = "^"
 		g.CardAction.DOWN:
-			text = "v"
+			$Label.text = "v"
 		g.CardAction.LEFT:
-			text = "<"
+			$Label.text = "<"
 		g.CardAction.RIGHT:
-			text = ">"
+			$Label.text = ">"
 
-
-func _on_button_down() -> void:
-	# Have it be selected for either "Play" or "Discard"
-	card_selected.emit(self)
+func _on_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			make_player_do_something.emit(action)
+			reparent(discard)
+		elif event.button_index == MOUSE_BUTTON_RIGHT:
+			if g.discards_left_this_turn > 0:
+				g.discards_left_this_turn -= 1
+				reparent(discard)
+				await get_tree().create_timer(.2).timeout # Sleep
+				card_manager.draw_card()
