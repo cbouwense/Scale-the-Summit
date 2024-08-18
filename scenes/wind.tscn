@@ -81,7 +81,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 15.0
+"speed": 5.0
 }]
 
 [node name="Wind" type="Area2D"]
@@ -97,21 +97,119 @@ collision_mask = 4
 collide_with_areas = true
 collide_with_bodies = false
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_je3na")
-frame_progress = 0.368662
+autoplay = "default"
+frame_progress = 0.600355
 
-[node name="Sprite2D2" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 position = Vector2(-16, 0)
 sprite_frames = SubResource("SpriteFrames_je3na")
-frame_progress = 0.477074
+autoplay = "default"
+frame_progress = 0.600355
 
-[node name="Sprite2D3" type="AnimatedSprite2D" parent="."]
-position = Vector2(-32, -1)
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+position = Vector2(-32, 0)
 sprite_frames = SubResource("SpriteFrames_je3na")
-frame_progress = 0.453852
+autoplay = "default"
 
-[node name="Sprite2D4" type="AnimatedSprite2D" parent="."]
-position = Vector2(-48, -1)
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="."]
+position = Vector2(-48, 0)
 sprite_frames = SubResource("SpriteFrames_je3na")
-frame_progress = 0.41932
+autoplay = "default"
+frame_progress = 0.600355
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="."]
+position = Vector2(-63, 0)
+sprite_frames = SubResource("SpriteFrames_je3na")
+autoplay = "default"
+frame_progress = 0.600355
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="."]
+position = Vector2(-79, 0)
+sprite_frames = SubResource("SpriteFrames_je3na")
+autoplay = "default"
+frame_progress = 0.600355
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="."]
+position = Vector2(-95, 0)
+sprite_frames = SubResource("SpriteFrames_je3na")
+autoplay = "default"
+frame_progress = 0.600355
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="."]
+position = Vector2(-111, 0)
+sprite_frames = SubResource("SpriteFrames_je3na")
+autoplay = "default"
+frame_progress = 0.600355
+
+[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="."]
+position = Vector2(-127, 0)
+sprite_frames = SubResource("SpriteFrames_je3na")
+autoplay = "default"
+frame_progress = 0.600355
+
+[node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="."]
+position = Vector2(-143, 0)
+sprite_frames = SubResource("SpriteFrames_je3na")
+autoplay = "default"
+frame_progress = 0.600355
+
+[node name="AnimatedSprite2D11" type="AnimatedSprite2D" parent="."]
+position = Vector2(-158, 0)
+sprite_frames = SubResource("SpriteFrames_je3na")
+autoplay = "default"
+frame_progress = 0.600355
+
+[node name="AnimatedSprite2D12" type="AnimatedSprite2D" parent="."]
+position = Vector2(-174, 0)
+sprite_frames = SubResource("SpriteFrames_je3na")
+autoplay = "default"
+frame_progress = 0.600355
+
+[node name="AnimatedSprite2D13" type="AnimatedSprite2D" parent="."]
+position = Vector2(-190, 0)
+sprite_frames = SubResource("SpriteFrames_je3na")
+autoplay = "default"
+
+[node name="AnimatedSprite2D14" type="AnimatedSprite2D" parent="."]
+position = Vector2(-206, 0)
+sprite_frames = SubResource("SpriteFrames_je3na")
+autoplay = "default"
+frame_progress = 0.600355
+
+[node name="AnimatedSprite2D15" type="AnimatedSprite2D" parent="."]
+position = Vector2(-221, 0)
+sprite_frames = SubResource("SpriteFrames_je3na")
+autoplay = "default"
+frame_progress = 0.600355
+
+[node name="AnimatedSprite2D16" type="AnimatedSprite2D" parent="."]
+position = Vector2(-237, 0)
+sprite_frames = SubResource("SpriteFrames_je3na")
+autoplay = "default"
+frame_progress = 0.600355
+
+[node name="AnimatedSprite2D17" type="AnimatedSprite2D" parent="."]
+position = Vector2(-253, 0)
+sprite_frames = SubResource("SpriteFrames_je3na")
+autoplay = "default"
+frame_progress = 0.600355
+
+[node name="AnimatedSprite2D18" type="AnimatedSprite2D" parent="."]
+position = Vector2(-269, 0)
+sprite_frames = SubResource("SpriteFrames_je3na")
+autoplay = "default"
+frame_progress = 0.600355
+
+[node name="AnimatedSprite2D19" type="AnimatedSprite2D" parent="."]
+position = Vector2(-285, 0)
+sprite_frames = SubResource("SpriteFrames_je3na")
+autoplay = "default"
+frame_progress = 0.600355
+
+[node name="AnimatedSprite2D20" type="AnimatedSprite2D" parent="."]
+position = Vector2(-301, 0)
+sprite_frames = SubResource("SpriteFrames_je3na")
+autoplay = "default"
+frame_progress = 0.600355

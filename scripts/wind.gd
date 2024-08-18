@@ -7,5 +7,15 @@ class_name Wind extends Area2D
 @onready var raycast: RayCast2D = get_node(raycast_path)
 
 func gust():
+	for child in get_children():
+		if child is AnimatedSprite2D:
+			child.sprite_frames.set_animation_speed('default', 45)
+			
+	await get_tree().create_timer(.5).timeout # Sleep
 	if raycast.is_colliding():
 		player.do_something(g.CardAction.DOWN)
+	await get_tree().create_timer(.5).timeout # Sleep
+	
+	for child in get_children():
+		if child is AnimatedSprite2D:
+			child.sprite_frames.set_animation_speed('default', 5)

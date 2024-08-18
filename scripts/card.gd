@@ -35,3 +35,5 @@ func _on_gui_input(event: InputEvent) -> void:
 				reparent(discard)
 				await get_tree().create_timer(.2).timeout # Sleep
 				card_manager.draw_card()
+				await get_tree().create_timer(.2).timeout # Sleep
+				

@@ -1,10 +1,88 @@
-[gd_scene load_steps=4 format=3 uid="uid://f27dlqa585u4"]
+[gd_scene load_steps=15 format=3 uid="uid://f27dlqa585u4"]
 
-[ext_resource type="Texture2D" uid="uid://cx8gfv4ty242m" path="res://assets/sprites/world_tileset.png" id="1_ow74q"]
 [ext_resource type="Script" path="res://scripts/avalanche.gd" id="1_x42c7"]
+[ext_resource type="Texture2D" uid="uid://ct17l5xx3m6h1" path="res://assets/sprites/wind-Sheet.png" id="2_0j5xx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8g6en"]
 size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25irc"]
+atlas = ExtResource("2_0j5xx")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ufp3"]
+atlas = ExtResource("2_0j5xx")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmy5m"]
+atlas = ExtResource("2_0j5xx")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvajb"]
+atlas = ExtResource("2_0j5xx")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfq0i"]
+atlas = ExtResource("2_0j5xx")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nwn11"]
+atlas = ExtResource("2_0j5xx")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olc1d"]
+atlas = ExtResource("2_0j5xx")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3oas"]
+atlas = ExtResource("2_0j5xx")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7mvg"]
+atlas = ExtResource("2_0j5xx")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujtx3"]
+atlas = ExtResource("2_0j5xx")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3640f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25irc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ufp3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmy5m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvajb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mfq0i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nwn11")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olc1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3oas")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7mvg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujtx3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Avalanche" type="Area2D"]
 script = ExtResource("1_x42c7")
@@ -19,7 +97,361 @@ collision_mask = 4
 collide_with_areas = true
 collide_with_bodies = false
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_ow74q")
-region_enabled = true
-region_rect = Rect2(0, 160, 16, 16)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 16)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 32)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 48)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 64)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 80)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 96)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 112)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 128)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 144)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D11" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 160)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D12" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 176)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D13" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 192)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D14" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 208)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D15" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 224)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D16" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 240)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D17" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 256)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D18" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 272)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D19" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 288)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D20" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 304)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D21" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 320)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D22" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 336)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D23" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 352)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D24" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 368)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D25" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 384)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D26" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 400)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D27" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 416)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D28" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 432)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D29" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 448)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D30" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 464)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D31" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 480)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D32" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 496)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D33" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 512)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D34" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 528)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D35" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 544)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D36" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 560)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D37" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 576)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D38" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 592)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D39" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 608)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D40" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 624)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D41" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 640)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D42" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 656)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D43" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 672)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D44" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 688)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D45" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 704)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D46" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 720)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D47" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 736)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D48" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 752)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D49" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 768)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D50" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 784)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D51" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 800)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D52" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 816)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D53" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 832)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D54" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 848)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D55" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 864)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D56" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 880)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D57" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 896)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D58" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 912)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D59" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 928)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"
+
+[node name="AnimatedSprite2D60" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 944)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_3640f")
+autoplay = "default"

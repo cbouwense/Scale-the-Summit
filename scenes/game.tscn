@@ -394,7 +394,6 @@ size_flags_vertical = 4
 
 [node name="CardUp" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
-action = 0
 
 [node name="CardDown" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
@@ -410,7 +409,6 @@ action = 3
 
 [node name="CardUp2" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
-action = 0
 
 [node name="CardDown2" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
@@ -426,7 +424,6 @@ action = 3
 
 [node name="CardUp3" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
-action = 0
 
 [node name="CardDown3" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
@@ -473,23 +470,47 @@ script = ExtResource("8_7a370")
 card_manager_path = NodePath("../../../../../..")
 
 [node name="Pickup" parent="." instance=ExtResource("10_vqq0q")]
+visible = false
 position = Vector2(-8, -72)
 card_manager_path = NodePath("../CardManager")
 
 [node name="Pickup2" parent="." instance=ExtResource("10_vqq0q")]
+visible = false
 position = Vector2(24, -72)
 card_manager_path = NodePath("../CardManager")
 
-[node name="Hazard" parent="." instance=ExtResource("12_2xkfn")]
-position = Vector2(8, -56)
-
 [node name="Avalanche" parent="." instance=ExtResource("13_tyg7e")]
-position = Vector2(8, -736)
+z_index = 3
+position = Vector2(409, -735)
 player_path = NodePath("../Player")
 
 [node name="Wind" parent="." instance=ExtResource("14_u6yex")]
-position = Vector2(81, -8)
+z_index = 3
+position = Vector2(157, 238)
 player_path = NodePath("../Player")
+
+[node name="Hazards" type="Node2D" parent="."]
+
+[node name="Hazard" parent="Hazards" instance=ExtResource("12_2xkfn")]
+position = Vector2(8, -56)
+
+[node name="Hazard4" parent="Hazards" instance=ExtResource("12_2xkfn")]
+position = Vector2(40, -88)
+
+[node name="Hazard5" parent="Hazards" instance=ExtResource("12_2xkfn")]
+position = Vector2(-24, -88)
+
+[node name="Hazard6" parent="Hazards" instance=ExtResource("12_2xkfn")]
+position = Vector2(8, -88)
+
+[node name="Hazard7" parent="Hazards" instance=ExtResource("12_2xkfn")]
+position = Vector2(40, -120)
+
+[node name="Hazard8" parent="Hazards" instance=ExtResource("12_2xkfn")]
+position = Vector2(-24, -120)
+
+[node name="Hazard9" parent="Hazards" instance=ExtResource("12_2xkfn")]
+position = Vector2(8, -120)
 
 [connection signal="button_up" from="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/PlayCards" to="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/PlayCards" method="_on_button_up"]
 [connection signal="button_up" from="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/DiscardCards" to="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/DiscardCards" method="_on_button_up"]

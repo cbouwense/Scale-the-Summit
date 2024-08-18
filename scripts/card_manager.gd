@@ -112,12 +112,12 @@ func end_turn() -> void:
 	await get_tree().create_timer(1).timeout # Sleep
 	
 	# Gust the wind
-	wind.gust()
+	await wind.gust()
 	await get_tree().create_timer(1).timeout # Sleep
-	
+		
 	# Move wind to a random spot
-	var y_diff = randi_range(-3, 3)
-	wind.position.y = player.position.y + (16 * y_diff) + 8
+	var y_diff = randi_range(0, 3)
+	wind.position.y = player.position.y - (16 * y_diff) - 8
 	await get_tree().create_timer(1).timeout # Sleep
 	
 	# Move the lava up one tile
