@@ -1,18 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0jswppaqqusl"]
+[gd_scene load_steps=6 format=3 uid="uid://d0jswppaqqusl"]
 
+[ext_resource type="Texture2D" uid="uid://c2wymlmqukhlk" path="res://assets/sprites/theme.png" id="1_4p7o3"]
 [ext_resource type="Script" path="res://scripts/card.gd" id="1_73i1e"]
-[ext_resource type="Texture2D" uid="uid://bogaslfs4ru66" path="res://assets/sprites/card-sheet.png" id="1_yf47i"]
+[ext_resource type="Theme" uid="uid://gl5sre36a7ms" path="res://resources/main_theme.tres" id="1_vyg4n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fqrxb"]
-atlas = ExtResource("1_yf47i")
-region = Rect2(70, 0, 70, 100)
+atlas = ExtResource("1_4p7o3")
+region = Rect2(35, 0, 35, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30w7k"]
+atlas = ExtResource("1_4p7o3")
+region = Rect2(70, 0, 35, 50)
 
 [node name="CardUp" type="TextureButton"]
-custom_minimum_size = Vector2(50, 100)
+custom_minimum_size = Vector2(70, 100)
 offset_right = 50.0
 offset_bottom = 100.0
 toggle_mode = true
 texture_normal = SubResource("AtlasTexture_fqrxb")
+texture_pressed = SubResource("AtlasTexture_30w7k")
+stretch_mode = 0
 script = ExtResource("1_73i1e")
 
 [node name="Label" type="Label" parent="."]
@@ -22,6 +29,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_vyg4n")
 text = "^"
 horizontal_alignment = 1
 vertical_alignment = 1

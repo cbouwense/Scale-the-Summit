@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://scripts/pile_counts.gd" id="6_epjhv"]
 [ext_resource type="Script" path="res://scripts/discard_cards.gd" id="7_po0yu"]
 [ext_resource type="Script" path="res://scripts/end_turn.gd" id="8_7a370"]
-[ext_resource type="Theme" uid="uid://4a51kfygx7rd" path="res://resources/main_theme.tres" id="10_01yge"]
+[ext_resource type="Theme" uid="uid://gl5sre36a7ms" path="res://resources/main_theme.tres" id="10_01yge"]
 [ext_resource type="PackedScene" uid="uid://b306y7thyimeq" path="res://scenes/pickup.tscn" id="10_vqq0q"]
 [ext_resource type="PackedScene" uid="uid://dhu4v8yyin634" path="res://scenes/hazard.tscn" id="12_2xkfn"]
 [ext_resource type="PackedScene" uid="uid://f27dlqa585u4" path="res://scenes/avalanche.tscn" id="13_tyg7e"]
@@ -384,7 +384,6 @@ theme_override_constants/margin_bottom = 10
 
 [node name="MainStuff" type="HBoxContainer" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
-alignment = 1
 
 [node name="Hand" type="HBoxContainer" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff"]
 custom_minimum_size = Vector2(366, 100)
@@ -407,47 +406,59 @@ size_flags_vertical = 4
 
 [node name="CardUp" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
+theme = ExtResource("10_01yge")
 
 [node name="CardDown" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
+theme = ExtResource("10_01yge")
 action = 1
 
 [node name="CardLeft" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
+theme = ExtResource("10_01yge")
 action = 2
 
 [node name="CardRight" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
+theme = ExtResource("10_01yge")
 action = 3
 
 [node name="CardRight4" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
+theme = ExtResource("10_01yge")
 action = 3
 
 [node name="CardRight5" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
+theme = ExtResource("10_01yge")
 action = 3
 
 [node name="CardUp2" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
+theme = ExtResource("10_01yge")
 
 [node name="CardDown2" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
+theme = ExtResource("10_01yge")
 action = 1
 
 [node name="CardLeft2" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
+theme = ExtResource("10_01yge")
 action = 2
 
 [node name="CardRight2" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
+theme = ExtResource("10_01yge")
 action = 3
 
 [node name="CardUp3" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
+theme = ExtResource("10_01yge")
 
 [node name="CardDown3" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
 layout_mode = 2
+theme = ExtResource("10_01yge")
 action = 1
 
 [node name="HBoxContainer" type="VBoxContainer" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff"]
@@ -465,10 +476,11 @@ card_manager_path = NodePath("../../../../../..")
 
 [node name="DiscardCards" type="Button" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer"]
 visible = false
-custom_minimum_size = Vector2(75, 50)
+custom_minimum_size = Vector2(108, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
+theme = ExtResource("10_01yge")
 text = "Discard"
 script = ExtResource("7_po0yu")
 card_manager_path = NodePath("../../../../../..")

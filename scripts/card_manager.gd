@@ -38,6 +38,7 @@ const avalanche_x_positions = [-24, -8, 8, 24, 42]
 func start_game() -> void:
 	initialize_deck()
 	reset()
+	discard_button.visible = true
 	end_turn_button.visible = true
 
 func initialize_deck():
@@ -77,26 +78,20 @@ func play_card(card: Card):
 	await get_tree().create_timer(.2).timeout # Sleep
 
 func discard_cards() -> void:
+	discard_button.set_disabled(true)
 	var selected_len = g.selected_cards.size()
 	for card in g.selected_cards:
 		# Move from hand to the Discard
+		
+		#var card_index = card.get_index()
 		card.reparent(discard)
+		draw_card()
 		card.set_pressed(false)
 		
 		# Sleep
 		await get_tree().create_timer(.2).timeout
 		
-	# Draw new cards from the deck
-	for i in range(selected_len):
-		# TODO: what if there are no more cards to draw?
-		draw_card()
-		
-		# Sleep
-		await get_tree().create_timer(.2).timeout
-		
-	#g.selected_cards.clear()
-	
-	discard_button.set_disabled(true)
+	g.selected_cards.clear()
 
 func end_turn() -> void:
 	# Disable the action buttons while things are happening
@@ -106,28 +101,28 @@ func end_turn() -> void:
 	
 	# Discard all cards from hand
 	for card in hand.get_children():
-		card.reparent(discard)
+		#card.reparent(discard)
 		card.set_pressed(false)
 		
-		# Sleep
-		await get_tree().create_timer(.2).timeout
+		## Sleep
+		#await get_tree().create_timer(.2).timeout
 	
 	# Sleep a little for some suspense
 	# TODO: maybe flash a "hazard turn"
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(.5).timeout
 	
 	# Dump the avalanche
 	avalanche.dump()
-	await get_tree().create_timer(1).timeout # Sleep
+	await get_tree().create_timer(.5).timeout # Sleep
 	
 	# Move avalanche to a random spot
 	var x_diff = randi_range(-3, 3)
 	avalanche.position.x = (16 * x_diff) + 8
-	await get_tree().create_timer(1).timeout # Sleep
+	await get_tree().create_timer(.5).timeout # Sleep
 	
 	# Gust the wind
 	await wind.gust()
-	await get_tree().create_timer(1).timeout # Sleep
+	await get_tree().create_timer(.5).timeout # Sleep
 		
 	# Move wind to a random spot
 	var y_diff = randi_range(0, 3)
@@ -136,7 +131,7 @@ func end_turn() -> void:
 	
 	# Move the lava up one tile
 	lava_layer.position.y -= 16
-	await get_tree().create_timer(1).timeout # Sleep
+	await get_tree().create_timer(.5).timeout # Sleep
 	
 	draw_full_hand()
 

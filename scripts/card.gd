@@ -30,9 +30,10 @@ func _on_gui_input(event: InputEvent) -> void:
 			make_player_do_something.emit(action)
 			reparent(discard)
 		elif event.button_index == MOUSE_BUTTON_RIGHT:
-			if g.discards_left_this_turn > 0:
-				g.discards_left_this_turn -= 1
-				var card_index = get_index()
-				reparent(discard)
-				card_manager.draw_card(card_index)
+			if button_pressed and g.selected_cards.has(self):
+				button_pressed = false
+				g.selected_cards.erase(self)
+			else:
+				button_pressed = true
+				g.selected_cards.push_back(self)
 				
