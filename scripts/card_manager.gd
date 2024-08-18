@@ -103,6 +103,14 @@ func end_turn() -> void:
 	discard_button.set_disabled(true)
 	end_turn_button.set_disabled(true)
 	
+	# Discard all cards from hand
+	for card in hand.get_children():
+		card.reparent(discard)
+		card.set_pressed(false)
+		
+		# Sleep
+		await get_tree().create_timer(.2).timeout
+	
 	# Sleep a little for some suspense
 	# TODO: maybe flash a "hazard turn"
 	await get_tree().create_timer(1).timeout
@@ -128,14 +136,6 @@ func end_turn() -> void:
 	# Move the lava up one tile
 	lava_layer.position.y -= 16
 	await get_tree().create_timer(1).timeout # Sleep
-	
-	# Discard all cards from hand
-	for card in hand.get_children():
-		card.reparent(discard)
-		card.set_pressed(false)
-		
-		# Sleep
-		await get_tree().create_timer(.2).timeout
 	
 	draw_full_hand()
 

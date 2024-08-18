@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://scripts/pile_counts.gd" id="6_epjhv"]
 [ext_resource type="Script" path="res://scripts/discard_cards.gd" id="7_po0yu"]
 [ext_resource type="Script" path="res://scripts/end_turn.gd" id="8_7a370"]
-[ext_resource type="Theme" uid="uid://gl5sre36a7ms" path="res://resources/main_theme.tres" id="10_01yge"]
+[ext_resource type="Theme" uid="uid://4a51kfygx7rd" path="res://resources/main_theme.tres" id="10_01yge"]
 [ext_resource type="PackedScene" uid="uid://b306y7thyimeq" path="res://scenes/pickup.tscn" id="10_vqq0q"]
 [ext_resource type="PackedScene" uid="uid://dhu4v8yyin634" path="res://scenes/hazard.tscn" id="12_2xkfn"]
 [ext_resource type="PackedScene" uid="uid://f27dlqa585u4" path="res://scenes/avalanche.tscn" id="13_tyg7e"]

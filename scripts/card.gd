@@ -34,7 +34,5 @@ func _on_gui_input(event: InputEvent) -> void:
 				g.discards_left_this_turn -= 1
 				var card_index = get_index()
 				reparent(discard)
-				await get_tree().create_timer(.2).timeout # Sleep
 				card_manager.draw_card(card_index)
-				await get_tree().create_timer(.2).timeout # Sleep
 				
