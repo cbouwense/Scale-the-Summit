@@ -49,9 +49,14 @@ func shuffle_cards():
 	for i in range(cards_in_deck.size()):
 		deck.move_child(cards_in_deck[i],i)
 		
-func draw_card():
+func draw_card(index = null):
 	if deck.get_child_count() > 0: # If the deck has cards available
-		deck.get_child(0).reparent(hand) # then move the next card from the deck to the hand
+		var top_card = deck.get_child(0) # then move the next card from the deck to the hand
+		top_card.reparent(hand)
+		if index:
+			hand.move_child(top_card, index)
+			
+			
 	else: # Deck is empty
 		# Put all the discard cards into the deck again
 		for child in discard.get_children():

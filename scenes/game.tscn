@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://dwd16j8cfwm5a"]
+[gd_scene load_steps=18 format=4 uid="uid://dwd16j8cfwm5a"]
 
 [ext_resource type="PackedScene" uid="uid://cfjem2d5didl" path="res://scenes/player.tscn" id="1_fxfde"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_hkq8d"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://scripts/pile_counts.gd" id="6_epjhv"]
 [ext_resource type="Script" path="res://scripts/discard_cards.gd" id="7_po0yu"]
 [ext_resource type="Script" path="res://scripts/end_turn.gd" id="8_7a370"]
+[ext_resource type="Theme" uid="uid://gl5sre36a7ms" path="res://resources/main_theme.tres" id="10_01yge"]
 [ext_resource type="PackedScene" uid="uid://b306y7thyimeq" path="res://scenes/pickup.tscn" id="10_vqq0q"]
 [ext_resource type="PackedScene" uid="uid://dhu4v8yyin634" path="res://scenes/hazard.tscn" id="12_2xkfn"]
 [ext_resource type="PackedScene" uid="uid://f27dlqa585u4" path="res://scenes/avalanche.tscn" id="13_tyg7e"]
@@ -373,12 +374,14 @@ theme_override_constants/margin_bottom = 10
 
 [node name="MainStuff" type="HBoxContainer" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
-alignment = 2
+alignment = 1
 
 [node name="Hand" type="HBoxContainer" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff"]
+custom_minimum_size = Vector2(366, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+alignment = 1
 
 [node name="Discard" type="HBoxContainer" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff"]
 visible = false
@@ -465,6 +468,7 @@ custom_minimum_size = Vector2(75, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
+theme = ExtResource("10_01yge")
 text = "End turn"
 script = ExtResource("8_7a370")
 card_manager_path = NodePath("../../../../../..")

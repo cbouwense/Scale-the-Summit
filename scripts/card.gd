@@ -32,8 +32,9 @@ func _on_gui_input(event: InputEvent) -> void:
 		elif event.button_index == MOUSE_BUTTON_RIGHT:
 			if g.discards_left_this_turn > 0:
 				g.discards_left_this_turn -= 1
+				var card_index = get_index()
 				reparent(discard)
 				await get_tree().create_timer(.2).timeout # Sleep
-				card_manager.draw_card()
+				card_manager.draw_card(card_index)
 				await get_tree().create_timer(.2).timeout # Sleep
 				
