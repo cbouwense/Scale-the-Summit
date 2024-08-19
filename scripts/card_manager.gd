@@ -33,6 +33,7 @@ class_name CardManager extends Node
 @export var selected_card_count: int = 0
 
 @onready var card_scene = preload("res://scenes/card.tscn")
+@onready var notification_scene = preload("res://scenes/notification.tscn")
 
 const avalanche_x_positions = [-24, -8, 8, 24, 42]
 
@@ -51,8 +52,19 @@ func _process(delta):
 func start_game() -> void:
 	initialize_deck()
 	reset()
+	enable_actions()
+	
+func enable_actions():
+	hand.visible = true
+	play_cards_button.visible = true
 	discard_button.visible = true
 	end_turn_button.visible = true
+
+func disable_actions():
+	hand.visible = false
+	play_cards_button.visible = false
+	discard_button.visible = false
+	end_turn_button.visible = false
 
 func initialize_deck():
 	for action in starting_deck:
@@ -104,6 +116,7 @@ func check_for_hand(hand):
 	var has_pair = false
 	var pairs = 0
 	
+	
 	# Check for three of a kind and pair
 	for key in counts:
 		if counts[key] == 3:
@@ -112,14 +125,23 @@ func check_for_hand(hand):
 			has_pair = true
 			pairs += 1
 	
+	var draws = 0
 	# Determine hand type
 	if has_three_of_a_kind and has_pair:
-		return 5
+		display_notification("FULL HOUSE!\n+5 Draw")
+		draws = 5
+		await get_tree().create_timer(0.2).timeout
 	elif has_three_of_a_kind:
-		return 2
+		display_notification("THREE OF A KIND!\n+2 Draw")
+		draws = 2
+		await get_tree().create_timer(0.2).timeout
 	else:
-		return 1 * pairs
-	return 0
+		for i in range(1 * pairs):
+			draws += 1
+			display_notification("PAIR!\n+1 Draw")
+			await get_tree().create_timer(0.2).timeout
+		
+	return draws
 
 func play_cards():
 	play_cards_button.set_disabled(true)
@@ -130,7 +152,7 @@ func play_cards():
 		card.make_player_do_something.emit(card.action)
 		card.reparent(discard) # Move from hand to the Discard
 		await get_tree().create_timer(.2).timeout # Sleep
-	var draws = check_for_hand(selected_cards)
+	var draws = await check_for_hand(selected_cards)
 	for i in range(draws):
 		draw_card()
 		await get_tree().create_timer(.2).timeout # Sleep
@@ -233,3 +255,9 @@ func add_new_card_to_deck(action: g.CardAction):
 	new_card.action = action
 	new_card.initialize(player, discard, self)
 	deck.add_child(new_card)
+
+func display_notification(text):
+	var new_notification = notification_scene.instantiate()
+	new_notification.notification = text
+	add_child(new_notification)
+	

@@ -40,6 +40,7 @@ func _process(delta):
 			card_manager.start_game()
 
 func lose():
+	card_manager.disable_actions()
 	$Layer0.queue_free()
 	$Avalanche.queue_free()
 	$Wind.queue_free()
@@ -50,6 +51,7 @@ func lose():
 	card_manager.add_child(result_instance)
 
 func win():
+	card_manager.disable_actions()
 	$Layer0.queue_free()
 	$Avalanche.queue_free()
 	$Wind.queue_free()

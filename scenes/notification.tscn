@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://b34wfeq3omoj5"]
+
+[ext_resource type="Theme" uid="uid://gl5sre36a7ms" path="res://resources/main_theme.tres" id="1_4opjo"]
+[ext_resource type="Script" path="res://scripts/notification.gd" id="2_o2qlb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u4rry"]
+
+[node name="notification" type="Label"]
+z_index = 5
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -17.5
+offset_right = 48.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_4opjo")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_u4rry")
+text = "PAIR!
++1 draw"
+script = ExtResource("2_o2qlb")
