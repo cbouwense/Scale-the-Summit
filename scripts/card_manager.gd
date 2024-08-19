@@ -100,7 +100,9 @@ func draw_card(index = null):
 
 func check_for_hand(hand):
 	# draw 1 for pair
-	# draw 2 for three of a kind
+	# draw 2 for two pair
+	# draw 3 for three of a kind
+	# draw 4 for four of a kind
 	# draw 5 for full house
 	var counts = {}
 	
@@ -112,10 +114,10 @@ func check_for_hand(hand):
 		else:
 			counts[action] = 1
 	
+	var has_four_of_a_kind = false
 	var has_three_of_a_kind = false
 	var has_pair = false
 	var pairs = 0
-	
 	
 	# Check for three of a kind and pair
 	for key in counts:
@@ -131,9 +133,21 @@ func check_for_hand(hand):
 		display_notification("FULL HOUSE!\n+5 Draw")
 		draws = 5
 		await get_tree().create_timer(0.2).timeout
+	elif has_four_of_a_kind:
+		display_notification("FOUR OF A KIND!\n+4 Draw")
+		draws = 4
+		await get_tree().create_timer(0.2).timeout
 	elif has_three_of_a_kind:
-		display_notification("THREE OF A KIND!\n+2 Draw")
+		display_notification("THREE OF A KIND!\n+3 Draw")
+		draws = 3
+		await get_tree().create_timer(0.2).timeout
+	elif pairs == 2:
+		display_notification("TWO PAIR!\n+2 Draw")
 		draws = 2
+		await get_tree().create_timer(0.2).timeout
+	elif pairs == 1:
+		display_notification("ONE PAIR!\n+1 Draw")
+		draws = 1
 		await get_tree().create_timer(0.2).timeout
 	else:
 		for i in range(1 * pairs):
@@ -167,11 +181,11 @@ func discard_cards() -> void:
 		# Move from hand to the Discard
 		card.is_selected = false
 		card.order_in_selection = 0
+		card.set_disabled(false)
 		card.reparent(discard)
 		draw_card()
 		
-		# Sleep
-		await get_tree().create_timer(.2).timeout
+		await get_tree().create_timer(.2).timeout # Sleep
 
 func end_turn() -> void:
 	# Disable the action buttons while things are happening
@@ -218,8 +232,8 @@ func end_turn() -> void:
 	wind.position.y = player.position.y - (16 * y_diff) - 8
 	await get_tree().create_timer(1).timeout # Sleep
 	
-	# Move the lava up one tile
-	lava_layer.position.y -= 16
+	# Move the lava up (1 tile on level 1, 2 on level 2, etc)
+	lava_layer.position.y -= (16 * g.level)
 	await get_tree().create_timer(.5).timeout # Sleep
 	
 	draw_full_hand()
@@ -249,6 +263,7 @@ func reset() -> void:
 	g.selected_cards.clear()
 	shuffle_cards()
 	draw_full_hand()
+	
 
 func add_new_card_to_deck(action: g.CardAction):
 	var new_card: Card = card_scene.instantiate()
@@ -256,8 +271,9 @@ func add_new_card_to_deck(action: g.CardAction):
 	new_card.initialize(player, discard, self)
 	deck.add_child(new_card)
 
-func display_notification(text):
+func display_notification(text: String, display_seconds: int = 2):
 	var new_notification = notification_scene.instantiate()
 	new_notification.notification = text
+	new_notification.display_seconds = display_seconds
 	add_child(new_notification)
 	

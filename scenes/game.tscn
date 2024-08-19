@@ -234,6 +234,7 @@ end_turn_button_path = NodePath("MarginContainer/VBoxContainer/MarginContainer/M
 lava_layer_path = NodePath("../Layer0/LavaLayer")
 avalanche_path = NodePath("../Avalanche")
 wind_path = NodePath("../Wind")
+selected_card_count = null
 
 [node name="MarginContainer" type="MarginContainer" parent="CardManager"]
 anchors_preset = 15

@@ -2,6 +2,8 @@ extends Label
 
 var notification = "NO NOTIFICATION"
 
+var display_seconds = 2
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	text = notification
@@ -12,7 +14,7 @@ func _ready():
 	tween.tween_property(self, "modulate:a", 1, 1)
 	tween.tween_property(self, "position:y", position.y - 100, .5)
 	tween.set_parallel(false)
-	tween.tween_property(self, "modulate:a", 0, 2)
+	tween.tween_property(self, "modulate:a", 0, display_seconds)
 	tween.set_parallel(true)
 	tween.tween_property(self, "position:y", position.y - 150, 2)
 	await tween.finished
