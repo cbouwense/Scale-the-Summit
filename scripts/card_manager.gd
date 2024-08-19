@@ -36,6 +36,13 @@ class_name CardManager extends Node
 
 const avalanche_x_positions = [-24, -8, 8, 24, 42]
 
+var starting_deck = {
+	g.CardAction.UP: 4,
+	g.CardAction.DOWN: 4,
+	g.CardAction.LEFT: 4,
+	g.CardAction.RIGHT: 4
+}
+
 func _process(delta):
 	var selected_cards = hand.get_children().filter(func(c: Card): return c.is_selected)
 	selected_card_count = selected_cards.size()
@@ -48,8 +55,9 @@ func start_game() -> void:
 	end_turn_button.visible = true
 
 func initialize_deck():
-	for card in deck.get_children():
-		card.initialize(player, discard, self)
+	for action in starting_deck:
+		for _i in range(starting_deck[action]):
+			add_new_card_to_deck(action)
 
 func shuffle_cards():
 	var cards_in_deck = deck.get_children()
@@ -78,6 +86,41 @@ func draw_card(index = null):
 		# At this point we now have cards in the deck, so call draw_card recursively to continue
 		draw_card()
 
+func check_for_hand(hand):
+	# draw 1 for pair
+	# draw 2 for three of a kind
+	# draw 5 for full house
+	var counts = {}
+	
+	# Count occurrences of each element
+	for value in hand:
+		var action = value.action
+		if counts.has(action):
+			counts[action] += 1
+		else:
+			counts[action] = 1
+	
+	var has_three_of_a_kind = false
+	var has_pair = false
+	var pairs = 0
+	
+	# Check for three of a kind and pair
+	for key in counts:
+		if counts[key] == 3:
+			has_three_of_a_kind = true
+		elif counts[key] == 2:
+			has_pair = true
+			pairs += 1
+	
+	# Determine hand type
+	if has_three_of_a_kind and has_pair:
+		return 5
+	elif has_three_of_a_kind:
+		return 2
+	else:
+		return 1 * pairs
+	return 0
+
 func play_cards():
 	play_cards_button.set_disabled(true)
 	var selected_cards = hand.get_children().filter(func(c: Card): return c.is_selected)
@@ -87,11 +130,17 @@ func play_cards():
 		card.make_player_do_something.emit(card.action)
 		card.reparent(discard) # Move from hand to the Discard
 		await get_tree().create_timer(.2).timeout # Sleep
+	var draws = check_for_hand(selected_cards)
+	for i in range(draws):
+		draw_card()
+		await get_tree().create_timer(.2).timeout # Sleep
 	play_cards_button.set_disabled(false)
 
 func discard_cards() -> void:
-	discard_button.set_disabled(true)
 	var selected_cards = hand.get_children().filter(func(c: Card): return c.is_selected)
+	if selected_cards.is_empty():
+		return
+	discard_button.set_disabled(true)
 	for card in selected_cards:
 		# Move from hand to the Discard
 		card.is_selected = false
@@ -181,6 +230,6 @@ func reset() -> void:
 
 func add_new_card_to_deck(action: g.CardAction):
 	var new_card: Card = card_scene.instantiate()
-	new_card.initialize(player, discard, self)
 	new_card.action = action
+	new_card.initialize(player, discard, self)
 	deck.add_child(new_card)

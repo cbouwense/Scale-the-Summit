@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://dwd16j8cfwm5a"]
+[gd_scene load_steps=24 format=4 uid="uid://dwd16j8cfwm5a"]
 
 [ext_resource type="PackedScene" uid="uid://cfjem2d5didl" path="res://scenes/player.tscn" id="1_fxfde"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_hkq8d"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://scripts/card_manager.gd" id="3_a81jr"]
 [ext_resource type="Script" path="res://scripts/lava_layer.gd" id="3_okq34"]
 [ext_resource type="Texture2D" uid="uid://cre5b8ff7ttnj" path="res://assets/sprites/blizzard-Sheet.png" id="4_l73ow"]
-[ext_resource type="PackedScene" uid="uid://d0jswppaqqusl" path="res://scenes/card.tscn" id="4_uyotw"]
 [ext_resource type="Texture2D" uid="uid://dk6wk5tuamuie" path="res://assets/sprites/mountain_tiles-Sheet.png" id="5_uj2yb"]
 [ext_resource type="Script" path="res://scripts/play_cards.gd" id="6_8jgbr"]
 [ext_resource type="Script" path="res://scripts/pile_counts.gd" id="6_epjhv"]
@@ -455,63 +454,6 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-
-[node name="CardUp" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
-layout_mode = 2
-theme = ExtResource("10_01yge")
-
-[node name="CardDown" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
-layout_mode = 2
-theme = ExtResource("10_01yge")
-action = 1
-
-[node name="CardLeft" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
-layout_mode = 2
-theme = ExtResource("10_01yge")
-action = 2
-
-[node name="CardRight" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
-layout_mode = 2
-theme = ExtResource("10_01yge")
-action = 3
-
-[node name="CardRight4" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
-layout_mode = 2
-theme = ExtResource("10_01yge")
-action = 3
-
-[node name="CardRight5" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
-layout_mode = 2
-theme = ExtResource("10_01yge")
-action = 3
-
-[node name="CardUp2" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
-layout_mode = 2
-theme = ExtResource("10_01yge")
-
-[node name="CardDown2" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
-layout_mode = 2
-theme = ExtResource("10_01yge")
-action = 1
-
-[node name="CardLeft2" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
-layout_mode = 2
-theme = ExtResource("10_01yge")
-action = 2
-
-[node name="CardRight2" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
-layout_mode = 2
-theme = ExtResource("10_01yge")
-action = 3
-
-[node name="CardUp3" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
-layout_mode = 2
-theme = ExtResource("10_01yge")
-
-[node name="CardDown3" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck" instance=ExtResource("4_uyotw")]
-layout_mode = 2
-theme = ExtResource("10_01yge")
-action = 1
 
 [node name="HBoxContainer" type="VBoxContainer" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff"]
 layout_mode = 2
