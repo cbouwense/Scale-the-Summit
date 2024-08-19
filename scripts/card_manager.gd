@@ -272,8 +272,11 @@ func add_new_card_to_deck(action: g.CardAction):
 	deck.add_child(new_card)
 
 func display_notification(text: String, display_seconds: int = 2):
+	if $Notifications.get_child_count() > 0:
+		var current_notification = $Notifications.get_child(0)
+		await current_notification.tree_exited
 	var new_notification = notification_scene.instantiate()
 	new_notification.notification = text
 	new_notification.display_seconds = display_seconds
-	add_child(new_notification)
+	$Notifications.add_child(new_notification)
 	
