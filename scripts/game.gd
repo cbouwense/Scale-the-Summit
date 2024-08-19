@@ -15,7 +15,9 @@ extends Node2D
 @export var intro_path_follow: PathFollow2D
 #@onready var intro_path_follow: PathFollow2D
 
-var is_intro_running = true
+var lose_scene = preload("res://scenes/lose_screen.tscn")
+
+var is_intro_running = true 
 
 func reset_game():
 	player.position = g.player_starting_position
@@ -35,3 +37,12 @@ func _process(delta):
 			main_cam.make_current()
 			is_intro_running = false
 			card_manager.start_game()
+
+func lose():
+	$Layer0.queue_free()
+	$Avalanche.queue_free()
+	$Wind.queue_free()
+	$Pickups.queue_free()
+	$Hazards.queue_free()
+	var lose_instance = lose_scene.instantiate()
+	card_manager.add_child(lose_instance)

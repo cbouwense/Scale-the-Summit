@@ -48,13 +48,13 @@ texture = SubResource("AtlasTexture_hk7kx")
 custom_minimum_size = Vector2(140, 50)
 layout_mode = 2
 theme = ExtResource("1_e0gm0")
-text = "Play"
+text = "PLAY"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(140, 50)
 layout_mode = 2
 theme = ExtResource("1_e0gm0")
-text = "Quit"
+text = "QUIT"
 
 [connection signal="button_down" from="VBoxContainer/PlayButton" to="." method="_on_play_button_button_down"]
 [connection signal="button_down" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_button_down"]

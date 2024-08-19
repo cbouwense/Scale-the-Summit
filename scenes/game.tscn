@@ -528,16 +528,6 @@ text = "End turn"
 script = ExtResource("8_7a370")
 card_manager_path = NodePath("../../../../../..")
 
-[node name="Pickup" parent="." instance=ExtResource("10_vqq0q")]
-visible = false
-position = Vector2(-8, -72)
-card_manager_path = NodePath("../CardManager")
-
-[node name="Pickup2" parent="." instance=ExtResource("10_vqq0q")]
-visible = false
-position = Vector2(24, -72)
-card_manager_path = NodePath("../CardManager")
-
 [node name="Avalanche" parent="." instance=ExtResource("13_tyg7e")]
 z_index = 3
 position = Vector2(409, -735)
@@ -547,6 +537,18 @@ player_path = NodePath("../Player")
 z_index = 3
 position = Vector2(157, 238)
 player_path = NodePath("../Player")
+
+[node name="Pickups" type="Node2D" parent="."]
+
+[node name="Pickup" parent="Pickups" instance=ExtResource("10_vqq0q")]
+visible = false
+position = Vector2(-8, -72)
+card_manager_path = NodePath("../../CardManager")
+
+[node name="Pickup2" parent="Pickups" instance=ExtResource("10_vqq0q")]
+visible = false
+position = Vector2(24, -72)
+card_manager_path = NodePath("../../CardManager")
 
 [node name="Hazards" type="Node2D" parent="."]
 
