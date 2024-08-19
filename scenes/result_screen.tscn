@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmi1nn7shm5lh"]
+[gd_scene load_steps=3 format=3 uid="uid://b5bn82wgcef3y"]
 
-[ext_resource type="Theme" uid="uid://gl5sre36a7ms" path="res://resources/main_theme.tres" id="1_70svj"]
-[ext_resource type="Script" path="res://scripts/lose_screen.gd" id="1_tocj6"]
+[ext_resource type="Script" path="res://scripts/result_screen.gd" id="1_1bb2i"]
+[ext_resource type="Theme" uid="uid://gl5sre36a7ms" path="res://resources/main_theme.tres" id="2_6cnea"]
 
-[node name="lose_screen" type="Control"]
+[node name="result_screen" type="Control"]
 z_index = 10
 layout_mode = 3
 anchors_preset = 8
@@ -15,7 +15,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("1_tocj6")
+script = ExtResource("1_1bb2i")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(204, 120)
@@ -32,10 +32,10 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DiedLabel" type="Label" parent="VBoxContainer"]
+[node name="ResultLabel" type="Label" parent="VBoxContainer"]
 visible = false
 layout_mode = 2
-theme = ExtResource("1_70svj")
+theme = ExtResource("2_6cnea")
 theme_override_font_sizes/font_size = 32
 text = "YOU DIED"
 horizontal_alignment = 1
@@ -45,14 +45,14 @@ vertical_alignment = 1
 visible = false
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-theme = ExtResource("1_70svj")
+theme = ExtResource("2_6cnea")
 text = "PLAY AGAIN"
 
 [node name="MainMenuButton" type="Button" parent="VBoxContainer"]
 visible = false
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-theme = ExtResource("1_70svj")
+theme = ExtResource("2_6cnea")
 text = "MAIN MENU"
 
 [connection signal="button_down" from="VBoxContainer/PlayAgainButton" to="." method="_on_play_again_button_button_down"]

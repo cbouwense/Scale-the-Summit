@@ -499,7 +499,7 @@ action = 1
 layout_mode = 2
 
 [node name="PlayCards" type="Button" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer"]
-custom_minimum_size = Vector2(75, 50)
+custom_minimum_size = Vector2(108, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -519,7 +519,7 @@ script = ExtResource("7_po0yu")
 card_manager_path = NodePath("../../../../../..")
 
 [node name="EndTurn" type="Button" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer"]
-custom_minimum_size = Vector2(75, 50)
+custom_minimum_size = Vector2(108, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8

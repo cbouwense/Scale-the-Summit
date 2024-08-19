@@ -15,7 +15,7 @@ extends Node2D
 @export var intro_path_follow: PathFollow2D
 #@onready var intro_path_follow: PathFollow2D
 
-var lose_scene = preload("res://scenes/lose_screen.tscn")
+var result_scene = preload("res://scenes/result_screen.tscn")
 
 var is_intro_running = true 
 
@@ -44,5 +44,16 @@ func lose():
 	$Wind.queue_free()
 	$Pickups.queue_free()
 	$Hazards.queue_free()
-	var lose_instance = lose_scene.instantiate()
-	card_manager.add_child(lose_instance)
+	var result_instance = result_scene.instantiate()
+	result_instance.result = "YOU DIED"
+	card_manager.add_child(result_instance)
+
+func win():
+	$Layer0.queue_free()
+	$Avalanche.queue_free()
+	$Wind.queue_free()
+	$Pickups.queue_free()
+	$Hazards.queue_free()
+	var result_instance = result_scene.instantiate()
+	result_instance.result = "YOU WIN"
+	card_manager.add_child(result_instance)

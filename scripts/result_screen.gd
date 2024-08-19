@@ -1,15 +1,18 @@
 extends Control
 
-@onready var died_label = $VBoxContainer/DiedLabel
+@onready var result_label = $VBoxContainer/ResultLabel
 @onready var play_again_button = $VBoxContainer/PlayAgainButton
 @onready var main_menu_button = $VBoxContainer/MainMenuButton
 
+var result = "NO RESULT"
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	died_label.modulate.a = 0
-	died_label.show()
+	result_label.text = result
+	result_label.modulate.a = 0
+	result_label.show()
 	var tween = get_tree().create_tween()
-	tween.tween_property(died_label, "modulate:a", 1, 3)
+	tween.tween_property(result_label, "modulate:a", 1, 3)
 	await tween.finished
 	play_again_button.show()
 	main_menu_button.show()
