@@ -14,16 +14,16 @@ func _process(delta):
 		var text: String
 		if position.y > -80:
 			new_level = 1
-			text = "Scale the mountain.\nThe blizzard awakens beneath you..."
+			text = "Build combos to scale the summit.\nThe blizzard rumbles beneath you..."
 		elif position.y > -240:
 			new_level = 2
-			text = "Reached level 2!\nThe blizzard now doubles its pace..."
+			text = "Reached level 2!\nThe blizzard approaches..."
 		elif position.y > -416:
 			new_level = 3
-			text = "Reached level 3!\nThe blizzard has tripled its pace..."
+			text = "Reached level 3!\nThe blizzard doubles it pace..."
 		elif position.y > 576:
 			new_level = 4
-			text = "Reached level 4!\nThe blizzard cometh..."
+			text = "Reached level 4!\nGood luck..."
 		else:
 			print("win")
 		
