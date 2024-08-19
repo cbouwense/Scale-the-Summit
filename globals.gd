@@ -17,3 +17,6 @@ static var discards_left_this_turn = 3
 
 static var selected_cards = []
 @export var _selected_cards = selected_cards
+
+static var level = 1
+@export var _level = level

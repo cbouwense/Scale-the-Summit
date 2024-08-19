@@ -30,9 +30,15 @@ class_name CardManager extends Node
 @export var wind_path: NodePath
 @onready var wind: Wind = get_node(wind_path)
 
+@export var selected_card_count: int = 0
+
 @onready var card_scene = preload("res://scenes/card.tscn")
 
 const avalanche_x_positions = [-24, -8, 8, 24, 42]
+
+func _process(delta):
+	var selected_cards = hand.get_children().filter(func(c: Card): return c.is_selected)
+	selected_card_count = selected_cards.size()
 
 # Called when the node enters the scene tree for the first time.
 func start_game() -> void:
@@ -52,8 +58,10 @@ func shuffle_cards():
 		deck.move_child(cards_in_deck[i],i)
 		
 func draw_card(index = null):
+	print("draw_card", index)
 	if deck.get_child_count() > 0: # If the deck has cards available
-		var top_card = deck.get_child(0) # then move the next card from the deck to the hand
+		var top_card: Card = deck.get_child(0) # then move the next card from the deck to the hand
+		top_card.order_in_selection = 0
 		top_card.button_pressed = false
 		top_card.reparent(hand)
 		if index:
@@ -70,55 +78,55 @@ func draw_card(index = null):
 		# At this point we now have cards in the deck, so call draw_card recursively to continue
 		draw_card()
 
-func play_card(card: Card):
-	#for card in g.selected_cards:
-	#card.set_pressed(false)
-	#g.selected_cards.clear()
-	card.make_player_do_something.emit(card.action)
-	reparent(discard) # Move from hand to the Discard
-	await get_tree().create_timer(.2).timeout # Sleep
+func play_cards():
+	play_cards_button.set_disabled(true)
+	var selected_cards = hand.get_children().filter(func(c: Card): return c.is_selected)
+	selected_cards.sort_custom(func(a: Card, b: Card): return a.order_in_selection < b.order_in_selection)
+	for card in selected_cards:
+		card.is_selected = false
+		card.make_player_do_something.emit(card.action)
+		card.reparent(discard) # Move from hand to the Discard
+		await get_tree().create_timer(.2).timeout # Sleep
+	play_cards_button.set_disabled(false)
 
 func discard_cards() -> void:
 	discard_button.set_disabled(true)
-	var selected_len = g.selected_cards.size()
-	for card in g.selected_cards:
+	var selected_cards = hand.get_children().filter(func(c: Card): return c.is_selected)
+	for card in selected_cards:
 		# Move from hand to the Discard
-		
-		#var card_index = card.get_index()
+		card.is_selected = false
+		card.order_in_selection = 0
 		card.reparent(discard)
 		draw_card()
-		card.set_pressed(false)
 		
 		# Sleep
 		await get_tree().create_timer(.2).timeout
-		
-	g.selected_cards.clear()
 
 func end_turn() -> void:
 	# Disable the action buttons while things are happening
 	play_cards_button.set_disabled(true)
 	discard_button.set_disabled(true)
 	end_turn_button.set_disabled(true)
-	g.selected_cards.clear()
 	
 	# Discard all cards from hand
 	for card in hand.get_children():
-		#card.reparent(discard)
-		card.set_pressed(false)
-		
-		## Sleep
-		#await get_tree().create_timer(.2).timeout
-	
-	# Sleep a little for some suspense
-	# TODO: maybe flash a "hazard turn"
-	await get_tree().create_timer(.5).timeout
+		card.is_selected = false
+		card.order_in_selection = 0
 	
 	# Dump the avalanche
-	avalanche.dump()
+	await avalanche.dump()
 	await get_tree().create_timer(.5).timeout # Sleep
 	
 	# Move avalanche to a random spot
-	var x_diff = randi_range(-3, 3)
+	var x_diff
+	if g.level == 1:
+		x_diff = randi_range(-3, 3)
+	elif g.level == 2:
+		x_diff = randi_range(-3, 3)
+	elif g.level == 3:
+		x_diff = randi_range(-1, 1)
+	elif g.level == 4:
+		x_diff = randi_range(-1, 1)
 	avalanche.position.x = (16 * x_diff) + 8
 	await get_tree().create_timer(.5).timeout # Sleep
 	
@@ -127,7 +135,15 @@ func end_turn() -> void:
 	await get_tree().create_timer(.5).timeout # Sleep
 		
 	# Move wind to a random spot
-	var y_diff = randi_range(0, 3)
+	var y_diff
+	if g.level == 1:
+		y_diff = randi_range(-3, 3)
+	elif g.level == 2:
+		y_diff = randi_range(0, 2)
+	elif g.level == 3:
+		y_diff = randi_range(-1, 1)
+	elif g.level == 4:
+		y_diff = randi_range(0, 1)
 	wind.position.y = player.position.y - (16 * y_diff) - 8
 	await get_tree().create_timer(1).timeout # Sleep
 	

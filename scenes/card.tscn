@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://d0jswppaqqusl"]
 
 [ext_resource type="Texture2D" uid="uid://c2wymlmqukhlk" path="res://assets/sprites/theme.png" id="1_4p7o3"]
-[ext_resource type="Script" path="res://scripts/card.gd" id="1_73i1e"]
+[ext_resource type="Script" path="res://scenes/card.gd" id="1_73i1e"]
 [ext_resource type="Theme" uid="uid://gl5sre36a7ms" path="res://resources/main_theme.tres" id="1_vyg4n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fqrxb"]
@@ -34,5 +34,18 @@ text = "^"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Order" type="Label" parent="."]
+custom_minimum_size = Vector2(6, 10)
+layout_mode = 2
+offset_left = 5.0
+offset_top = 6.0
+offset_right = 66.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_vyg4n")
+horizontal_alignment = 2
+
 [connection signal="button_down" from="." to="." method="_on_button_down"]
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

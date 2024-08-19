@@ -9,6 +9,18 @@ class_name Player extends Node2D
 func _ready():
 	position = g.player_starting_position
 
+func _process(delta):
+	if position.y > -80:
+		g.level = 1
+	elif position.y > -240:
+		g.level = 2
+	elif position.y > -416:
+		g.level = 3
+	elif position.y > 576:
+		g.level = 4
+	else:
+		print("win")
+
 func do_something(action: g.CardAction):
 	match action:
 		g.CardAction.UP:
@@ -23,6 +35,8 @@ func do_something(action: g.CardAction):
 		g.CardAction.RIGHT:
 			if !ray_cast_2d_right.is_colliding():
 				position.x += 16
+
+	
 
 	# Did we reach the top?
 	if position.y <= -592:

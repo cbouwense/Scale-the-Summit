@@ -15,7 +15,7 @@ extends Node2D
 @export var intro_path_follow: PathFollow2D
 #@onready var intro_path_follow: PathFollow2D
 
-var is_intro_running = true 
+var is_intro_running = true
 
 func reset_game():
 	player.position = g.player_starting_position
@@ -27,8 +27,7 @@ func _input(event):
 		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 func _process(delta):
-	if is_intro_running and intro_path_follow:
-		print(intro_path_follow.progress_ratio)
+	if intro_path_follow and is_intro_running:
 		if intro_path_follow.progress_ratio < 0.99:
 			intro_path_follow.progress_ratio += 0.15 * delta
 		else:
