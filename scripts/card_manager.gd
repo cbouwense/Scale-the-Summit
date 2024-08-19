@@ -232,6 +232,11 @@ func end_turn() -> void:
 	wind.position.y = player.position.y - (16 * y_diff) - 8
 	await get_tree().create_timer(1).timeout # Sleep
 	
+	# Make enemies attack : ^ )
+	for enemy: Enemy in $"../Enemies".get_children():
+		enemy.attack()
+	await get_tree().create_timer(.5).timeout # Sleep
+	
 	# Move the lava up (1 tile on level 1, 2 on level 2, etc)
 	lava_layer.position.y -= (16 * g.level)
 	await get_tree().create_timer(.5).timeout # Sleep

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://dwd16j8cfwm5a"]
+[gd_scene load_steps=25 format=4 uid="uid://dwd16j8cfwm5a"]
 
 [ext_resource type="PackedScene" uid="uid://cfjem2d5didl" path="res://scenes/player.tscn" id="1_fxfde"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_hkq8d"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dhu4v8yyin634" path="res://scenes/hazard.tscn" id="12_2xkfn"]
 [ext_resource type="PackedScene" uid="uid://f27dlqa585u4" path="res://scenes/avalanche.tscn" id="13_tyg7e"]
 [ext_resource type="PackedScene" uid="uid://bam0oul7jrs4p" path="res://scenes/wind.tscn" id="14_u6yex"]
+[ext_resource type="PackedScene" uid="uid://dumkhj777r5rb" path="res://scenes/enemy.tscn" id="17_iy6hs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xicic"]
 texture = ExtResource("2_jmwwc")
@@ -196,7 +197,7 @@ intro_path_follow = NodePath("Path2D/PathFollow2D")
 
 [node name="Player" parent="." instance=ExtResource("1_fxfde")]
 z_index = 2
-position = Vector2(8, 0)
+position = Vector2(40, -224)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 enabled = false
@@ -645,6 +646,47 @@ offset_bottom = 480.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_rjc4s")
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("17_iy6hs")]
+position = Vector2(8, -248)
+player_path = NodePath("../../Player")
+
+[node name="Enemy7" parent="Enemies" instance=ExtResource("17_iy6hs")]
+position = Vector2(8, -328)
+player_path = NodePath("../../Player")
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource("17_iy6hs")]
+position = Vector2(-8, -296)
+player_path = NodePath("../../Player")
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource("17_iy6hs")]
+position = Vector2(24, -296)
+player_path = NodePath("../../Player")
+
+[node name="Enemy4" parent="Enemies" instance=ExtResource("17_iy6hs")]
+position = Vector2(8, -368)
+player_path = NodePath("../../Player")
+
+[node name="Enemy5" parent="Enemies" instance=ExtResource("17_iy6hs")]
+position = Vector2(-8, -384)
+player_path = NodePath("../../Player")
+
+[node name="Enemy6" parent="Enemies" instance=ExtResource("17_iy6hs")]
+position = Vector2(24, -384)
+player_path = NodePath("../../Player")
+
+[node name="Section3Walls" type="Node2D" parent="."]
+
+[node name="Hazard7" parent="Section3Walls" instance=ExtResource("12_2xkfn")]
+position = Vector2(-24, -344)
+
+[node name="Hazard8" parent="Section3Walls" instance=ExtResource("12_2xkfn")]
+position = Vector2(40, -344)
+
+[node name="Hazard9" parent="Section3Walls" instance=ExtResource("12_2xkfn")]
+position = Vector2(8, -344)
 
 [connection signal="button_down" from="CardManager/MarginContainer/VBoxContainer2/ExitButton" to="." method="_on_exit_button_button_down"]
 [connection signal="button_down" from="CardManager/MarginContainer/VBoxContainer2/HelpButton" to="." method="_on_help_button_button_down"]
