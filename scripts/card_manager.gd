@@ -237,8 +237,8 @@ func end_turn() -> void:
 		enemy.attack()
 	await get_tree().create_timer(.5).timeout # Sleep
 	
-	# Move the lava up (1 tile on level 1, 2 on level 2, etc)
-	lava_layer.position.y -= (16 * g.level)
+	# Move the lava up (0 tiles on level 1, 1 on level 2, etc)
+	lava_layer.position.y -= (16 * (g.level - 1))
 	await get_tree().create_timer(.5).timeout # Sleep
 	
 	draw_full_hand()

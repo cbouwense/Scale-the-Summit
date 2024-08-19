@@ -197,7 +197,6 @@ intro_path_follow = NodePath("Path2D/PathFollow2D")
 
 [node name="Player" parent="." instance=ExtResource("1_fxfde")]
 z_index = 2
-position = Vector2(40, -224)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 enabled = false
