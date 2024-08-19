@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=3 uid="uid://chiu8mymq10ex"]
+
+[ext_resource type="Script" path="res://scripts/help_screen.gd" id="1_6krhj"]
+[ext_resource type="Theme" uid="uid://gl5sre36a7ms" path="res://resources/main_theme.tres" id="1_8vq7v"]
+
+[node name="HelpScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6krhj")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_8vq7v")
+theme_override_font_sizes/font_size = 16
+text = "Help:
+
+Select any number of cards
+to either play or discard.
+
+Playing cards will discard 
+them and move the player
+
+You may discard once per turn
+to discard and draw the number
+of selected cards
+
+When a new turn begins draw
+back to five cards
+
+Reach the top!"
+
+[node name="ExitButton" type="Button" parent="Label"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -4.0
+offset_bottom = 4.0
+grow_horizontal = 0
+theme = ExtResource("1_8vq7v")
+text = "x"
+
+[connection signal="button_down" from="Label/ExitButton" to="." method="_on_exit_button_button_down"]

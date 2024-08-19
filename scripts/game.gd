@@ -16,6 +16,7 @@ extends Node2D
 #@onready var intro_path_follow: PathFollow2D
 
 var result_scene = preload("res://scenes/result_screen.tscn")
+var help_scene = preload("res://scenes/help_screen.tscn")
 
 var is_intro_running = true 
 
@@ -57,3 +58,12 @@ func win():
 	var result_instance = result_scene.instantiate()
 	result_instance.result = "YOU WIN"
 	card_manager.add_child(result_instance)
+
+
+func _on_help_button_button_down():
+	var help_instance = help_scene.instantiate()
+	card_manager.add_child(help_instance)
+
+
+func _on_exit_button_button_down():
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

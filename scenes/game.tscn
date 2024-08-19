@@ -243,6 +243,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="VBoxContainer2" type="VBoxContainer" parent="CardManager/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="ExitButton" type="Button" parent="CardManager/MarginContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("10_01yge")
+text = "x"
+
+[node name="HelpButton" type="Button" parent="CardManager/MarginContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("10_01yge")
+text = "?"
+
 [node name="VBoxContainer" type="VBoxContainer" parent="CardManager/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 8
@@ -670,6 +688,8 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_rjc4s")
 
+[connection signal="button_down" from="CardManager/MarginContainer/VBoxContainer2/ExitButton" to="." method="_on_exit_button_button_down"]
+[connection signal="button_down" from="CardManager/MarginContainer/VBoxContainer2/HelpButton" to="." method="_on_help_button_button_down"]
 [connection signal="button_up" from="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/PlayCards" to="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/PlayCards" method="_on_button_up"]
 [connection signal="button_up" from="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/DiscardCards" to="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/DiscardCards" method="_on_button_up"]
 [connection signal="button_up" from="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/EndTurn" to="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/EndTurn" method="_on_button_up"]
