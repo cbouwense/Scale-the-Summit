@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://b306y7thyimeq"]
+[gd_scene load_steps=5 format=3 uid="uid://b306y7thyimeq"]
 
 [ext_resource type="Script" path="res://scripts/pickup.gd" id="1_y8b4y"]
-[ext_resource type="Texture2D" uid="uid://cx8gfv4ty242m" path="res://assets/sprites/world_tileset.png" id="2_yfet7"]
+[ext_resource type="Texture2D" uid="uid://bogaslfs4ru66" path="res://assets/sprites/card-sheet.png" id="2_2adum"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w8wn4"]
 size = Vector2(15, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxafs"]
+atlas = ExtResource("2_2adum")
+region = Rect2(0, 0, 70, 100)
 
 [node name="Pickup" type="Area2D"]
 z_index = 1
@@ -14,8 +18,7 @@ script = ExtResource("1_y8b4y")
 shape = SubResource("RectangleShape2D_w8wn4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_yfet7")
-region_enabled = true
-region_rect = Rect2(112, 32, 16, 16)
+scale = Vector2(0.2, 0.2)
+texture = SubResource("AtlasTexture_hxafs")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

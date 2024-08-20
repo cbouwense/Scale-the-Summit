@@ -587,13 +587,27 @@ player_path = NodePath("../Player")
 [node name="Pickups" type="Node2D" parent="."]
 
 [node name="Pickup" parent="Pickups" instance=ExtResource("10_vqq0q")]
-visible = false
-position = Vector2(-8, -72)
+position = Vector2(-24, -56)
 card_manager_path = NodePath("../../CardManager")
 
 [node name="Pickup2" parent="Pickups" instance=ExtResource("10_vqq0q")]
-visible = false
-position = Vector2(24, -72)
+position = Vector2(40, -56)
+card_manager_path = NodePath("../../CardManager")
+
+[node name="Pickup3" parent="Pickups" instance=ExtResource("10_vqq0q")]
+position = Vector2(8, -120)
+card_manager_path = NodePath("../../CardManager")
+
+[node name="Pickup4" parent="Pickups" instance=ExtResource("10_vqq0q")]
+position = Vector2(24, -200)
+card_manager_path = NodePath("../../CardManager")
+
+[node name="Pickup5" parent="Pickups" instance=ExtResource("10_vqq0q")]
+position = Vector2(-8, -200)
+card_manager_path = NodePath("../../CardManager")
+
+[node name="Pickup6" parent="Pickups" instance=ExtResource("10_vqq0q")]
+position = Vector2(8, -280)
 card_manager_path = NodePath("../../CardManager")
 
 [node name="Hazards" type="Node2D" parent="."]
