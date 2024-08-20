@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://dwd16j8cfwm5a"]
+[gd_scene load_steps=31 format=4 uid="uid://dwd16j8cfwm5a"]
 
 [ext_resource type="PackedScene" uid="uid://cfjem2d5didl" path="res://scenes/player.tscn" id="1_fxfde"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_hkq8d"]
@@ -14,6 +14,7 @@
 [ext_resource type="Theme" uid="uid://gl5sre36a7ms" path="res://resources/main_theme.tres" id="10_01yge"]
 [ext_resource type="PackedScene" uid="uid://b306y7thyimeq" path="res://scenes/pickup.tscn" id="10_vqq0q"]
 [ext_resource type="PackedScene" uid="uid://dhu4v8yyin634" path="res://scenes/hazard.tscn" id="12_2xkfn"]
+[ext_resource type="Texture2D" uid="uid://c2wymlmqukhlk" path="res://assets/sprites/theme.png" id="13_hteai"]
 [ext_resource type="PackedScene" uid="uid://f27dlqa585u4" path="res://scenes/avalanche.tscn" id="13_tyg7e"]
 [ext_resource type="PackedScene" uid="uid://bam0oul7jrs4p" path="res://scenes/wind.tscn" id="14_u6yex"]
 [ext_resource type="PackedScene" uid="uid://dumkhj777r5rb" path="res://scenes/enemy.tscn" id="17_iy6hs"]
@@ -170,6 +171,18 @@ sources/0 = SubResource("TileSetAtlasSource_xicic")
 sources/2 = SubResource("TileSetAtlasSource_8uaiw")
 sources/3 = SubResource("TileSetAtlasSource_qsdru")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_541or"]
+atlas = ExtResource("13_hteai")
+region = Rect2(70, 0, 35, 50)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6jf0l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_64qwx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bpcol"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8i3jl"]
+
 [sub_resource type="Curve2D" id="Curve2D_ugrfe"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 8, -600, 0, 0, 0, 0, 8, 0)
@@ -226,73 +239,98 @@ tile_set = SubResource("TileSet_kviab")
 [node name="CardManager" type="CanvasLayer" parent="."]
 script = ExtResource("3_a81jr")
 player_path = NodePath("../Player")
-hand_path = NodePath("MarginContainer/VBoxContainer/MarginContainer/MainStuff/Hand")
-deck_path = NodePath("MarginContainer/VBoxContainer/MarginContainer/MainStuff/Deck")
-discard_path = NodePath("MarginContainer/VBoxContainer/MarginContainer/MainStuff/Discard")
-discard_button_path = NodePath("MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/DiscardCards")
-play_cards_button_path = NodePath("MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/PlayCards")
-end_turn_button_path = NodePath("MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/EndTurn")
+hand_path = NodePath("UI/Panel/VBoxContainer/MarginContainer/MainStuff/Hand")
+deck_path = NodePath("UI/Panel/VBoxContainer/MarginContainer/MainStuff/Deck")
+discard_path = NodePath("UI/Panel/VBoxContainer/MarginContainer/MainStuff/Discard")
+discard_button_path = NodePath("UI/Panel/VBoxContainer/MarginContainer2/CountsHBoxContainer/HBoxContainer/DiscardCards")
+play_cards_button_path = NodePath("UI/Panel/VBoxContainer/MarginContainer2/CountsHBoxContainer/HBoxContainer/PlayCards")
+end_turn_button_path = NodePath("UI/Panel/VBoxContainer/MarginContainer/MainStuff/EndTurn")
 lava_layer_path = NodePath("../Layer0/LavaLayer")
 avalanche_path = NodePath("../Avalanche")
 wind_path = NodePath("../Wind")
 
-[node name="MarginContainer" type="MarginContainer" parent="CardManager"]
+[node name="UI" type="MarginContainer" parent="CardManager"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="CardManager/MarginContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="CardManager/UI"]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="ExitButton" type="Button" parent="CardManager/MarginContainer/VBoxContainer2"]
+[node name="ExitButton" type="Button" parent="CardManager/UI/VBoxContainer2"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("10_01yge")
 text = "x"
 
-[node name="HelpButton" type="Button" parent="CardManager/MarginContainer/VBoxContainer2"]
+[node name="HelpButton" type="Button" parent="CardManager/UI/VBoxContainer2"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("10_01yge")
 text = "?"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CardManager/MarginContainer"]
+[node name="Panel" type="Panel" parent="CardManager/UI"]
+custom_minimum_size = Vector2(480, 250)
 layout_mode = 2
 size_flags_vertical = 8
 
-[node name="MarginContainer2" type="MarginContainer" parent="CardManager/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CardManager/UI/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -116.0
+offset_right = 240.0
+offset_bottom = 116.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+
+[node name="MarginContainer2" type="MarginContainer" parent="CardManager/UI/Panel/VBoxContainer"]
 layout_mode = 2
 
-[node name="CountsHBoxContainer" type="HBoxContainer" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer2"]
+[node name="CountsHBoxContainer" type="HBoxContainer" parent="CardManager/UI/Panel/VBoxContainer/MarginContainer2"]
 custom_minimum_size = Vector2(480, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 alignment = 1
 
-[node name="DiscardCounts" type="Panel" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer2/CountsHBoxContainer"]
-visible = false
-custom_minimum_size = Vector2(100, 150)
+[node name="DiscardIndicator" type="TextureRect" parent="CardManager/UI/Panel/VBoxContainer/MarginContainer2/CountsHBoxContainer"]
+custom_minimum_size = Vector2(70, 100)
 layout_mode = 2
+texture = SubResource("AtlasTexture_541or")
+
+[node name="DiscardCounts" type="Panel" parent="CardManager/UI/Panel/VBoxContainer/MarginContainer2/CountsHBoxContainer"]
+custom_minimum_size = Vector2(102, 100)
+layout_mode = 2
+theme = ExtResource("10_01yge")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_6jf0l")
 script = ExtResource("6_epjhv")
 pile_path = NodePath("../../../MarginContainer/MainStuff/Discard")
 up_amount_path = NodePath("GridContainer/UpAmount")
 down_amount_path = NodePath("GridContainer/DownAmount")
 left_amount_path = NodePath("GridContainer/LeftAmount")
 right_amount_path = NodePath("GridContainer/RightAmount")
+pile_indicator_path = NodePath("../DiscardIndicator")
 
-[node name="NameLabel" type="Label" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer2/CountsHBoxContainer/DiscardCounts"]
+[node name="NameLabel" type="Label" parent="CardManager/UI/Panel/VBoxContainer/MarginContainer2/CountsHBoxContainer/DiscardCounts"]
 custom_minimum_size = Vector2(75, 24)
 layout_mode = 2
 offset_right = 75.0
 offset_bottom = 24.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_64qwx")
 text = " DISCARD"
 
-[node name="GridContainer" type="GridContainer" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer2/CountsHBoxContainer/DiscardCounts"]
+[node name="GridContainer" type="GridContainer" parent="CardManager/UI/Panel/VBoxContainer/MarginContainer2/CountsHBoxContainer/DiscardCounts"]
 layout_mode = 0
 offset_left = 8.0
 offset_top = 27.0
@@ -300,197 +338,228 @@ offset_right = 162.0
 offset_bottom = 135.0
 columns = 2
 
-[node name="UpLabel" type="Label" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer2/CountsHBoxContainer/DiscardCounts/GridContainer"]
+[node name="UpLabel" type="Label" parent="CardManager/UI/Panel/VBoxContainer/MarginContainer2/CountsHBoxContainer/DiscardCounts/GridContainer"]
 custom_minimum_size = Vector2(62.34, 16.185)
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_64qwx")
 text = "Up
 "
 
-[node name="UpAmount" type="Label" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer2/CountsHBoxContainer/DiscardCounts/GridContainer"]
+[node name="UpAmount" type="Label" parent="CardManager/UI/Panel/VBoxContainer/MarginContainer2/CountsHBoxContainer/DiscardCounts/GridContainer"]
 custom_minimum_size = Vector2(62.34, 16.185)
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_64qwx")
 text = "x0"
 
-[node name="DownLabel" type="Label" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer2/CountsHBoxContainer/DiscardCounts/GridContainer"]
+[node name="DownLabel" type="Label" parent="CardManager/UI/Panel/VBoxContainer/MarginContainer2/CountsHBoxContainer/DiscardCounts/GridContainer"]
 custom_minimum_size = Vector2(62.34, 16.185)
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_64qwx")
 text = "Down"
 
-[node name="DownAmount" type="Label" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer2/CountsHBoxContainer/DiscardCounts/GridContainer"]
+[node name="DownAmount" type="Label" parent="CardManager/UI/Panel/VBoxContainer/MarginContainer2/CountsHBoxContainer/DiscardCounts/GridContainer"]
 custom_minimum_size = Vector2(62.34, 16.185)
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_64qwx")
 text = "x0"
 
-[node name="LeftLabel" type="Label" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer2/CountsHBoxContainer/DiscardCounts/GridContainer"]
+[node name="LeftLabel" type="Label" parent="CardManager/UI/Panel/VBoxContainer/MarginContainer2/CountsHBoxContainer/DiscardCounts/GridContainer"]
 custom_minimum_size = Vector2(62.34, 16.185)
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_64qwx")
 text = "Left"
 
-[node name="LeftAmount" type="Label" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer2/CountsHBoxContainer/DiscardCounts/GridContainer"]
+[node name="LeftAmount" type="Label" parent="CardManager/UI/Panel/VBoxContainer/MarginContainer2/CountsHBoxContainer/DiscardCounts/GridContainer"]
 custom_minimum_size = Vector2(62.34, 16.185)
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_64qwx")
 text = "x0"
 
-[node name="RightLabel" type="Label" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer2/CountsHBoxContainer/DiscardCounts/GridContainer"]
+[node name="RightLabel" type="Label" parent="CardManager/UI/Panel/VBoxContainer/MarginContainer2/CountsHBoxContainer/DiscardCounts/GridContainer"]
 custom_minimum_size = Vector2(62.34, 16.185)
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_64qwx")
 text = "Right"
 
-[node name="RightAmount" type="Label" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer2/CountsHBoxContainer/DiscardCounts/GridContainer"]
+[node name="RightAmount" type="Label" parent="CardManager/UI/Panel/VBoxContainer/MarginContainer2/CountsHBoxContainer/DiscardCounts/GridContainer"]
 custom_minimum_size = Vector2(62.34, 16.185)
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_64qwx")
 text = "x0"
 
-[node name="CountSpacer" type="Control" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer2/CountsHBoxContainer"]
-custom_minimum_size = Vector2(260, 0)
+[node name="HBoxContainer" type="VBoxContainer" parent="CardManager/UI/Panel/VBoxContainer/MarginContainer2/CountsHBoxContainer"]
 layout_mode = 2
 
-[node name="DeckCounts" type="Panel" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer2/CountsHBoxContainer"]
-visible = false
-custom_minimum_size = Vector2(100, 150)
+[node name="PlayCards" type="Button" parent="CardManager/UI/Panel/VBoxContainer/MarginContainer2/CountsHBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(108, 50)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("10_01yge")
+text = "PLAY"
+script = ExtResource("6_8jgbr")
+card_manager_path = NodePath("../../../../../../..")
+
+[node name="DiscardCards" type="Button" parent="CardManager/UI/Panel/VBoxContainer/MarginContainer2/CountsHBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(108, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("10_01yge")
+text = "DISCARD"
+script = ExtResource("7_po0yu")
+card_manager_path = NodePath("../../../../../../..")
+
+[node name="DeckCounts" type="Panel" parent="CardManager/UI/Panel/VBoxContainer/MarginContainer2/CountsHBoxContainer"]
+custom_minimum_size = Vector2(102, 100)
+layout_mode = 2
+theme = ExtResource("10_01yge")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_6jf0l")
 script = ExtResource("6_epjhv")
 pile_path = NodePath("../../../MarginContainer/MainStuff/Deck")
 up_amount_path = NodePath("GridContainer/UpAmount")
 down_amount_path = NodePath("GridContainer/DownAmount")
 left_amount_path = NodePath("GridContainer/LeftAmount")
 right_amount_path = NodePath("GridContainer/RightAmount")
+pile_indicator_path = NodePath("../DeckIndicator")
 
-[node name="NameLabel" type="Label" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer2/CountsHBoxContainer/DeckCounts"]
+[node name="NameLabel" type="Label" parent="CardManager/UI/Panel/VBoxContainer/MarginContainer2/CountsHBoxContainer/DeckCounts"]
 custom_minimum_size = Vector2(75, 24)
 layout_mode = 2
 offset_left = 29.0
 offset_right = 104.0
 offset_bottom = 24.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bpcol")
 text = "DECK"
 
-[node name="GridContainer" type="GridContainer" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer2/CountsHBoxContainer/DeckCounts"]
+[node name="GridContainer" type="GridContainer" parent="CardManager/UI/Panel/VBoxContainer/MarginContainer2/CountsHBoxContainer/DeckCounts"]
 layout_mode = 0
 offset_left = 7.0
 offset_top = 27.0
 offset_right = 161.0
 offset_bottom = 135.0
+theme_override_constants/h_separation = 0
 columns = 2
 
-[node name="UpLabel" type="Label" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer2/CountsHBoxContainer/DeckCounts/GridContainer"]
+[node name="UpLabel" type="Label" parent="CardManager/UI/Panel/VBoxContainer/MarginContainer2/CountsHBoxContainer/DeckCounts/GridContainer"]
 custom_minimum_size = Vector2(62.34, 16.185)
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8i3jl")
 text = "Up
 "
 
-[node name="UpAmount" type="Label" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer2/CountsHBoxContainer/DeckCounts/GridContainer"]
+[node name="UpAmount" type="Label" parent="CardManager/UI/Panel/VBoxContainer/MarginContainer2/CountsHBoxContainer/DeckCounts/GridContainer"]
 custom_minimum_size = Vector2(62.34, 16.185)
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8i3jl")
 text = "x0"
 
-[node name="DownLabel" type="Label" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer2/CountsHBoxContainer/DeckCounts/GridContainer"]
+[node name="DownLabel" type="Label" parent="CardManager/UI/Panel/VBoxContainer/MarginContainer2/CountsHBoxContainer/DeckCounts/GridContainer"]
 custom_minimum_size = Vector2(62.34, 16.185)
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8i3jl")
 text = "Down"
 
-[node name="DownAmount" type="Label" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer2/CountsHBoxContainer/DeckCounts/GridContainer"]
+[node name="DownAmount" type="Label" parent="CardManager/UI/Panel/VBoxContainer/MarginContainer2/CountsHBoxContainer/DeckCounts/GridContainer"]
 custom_minimum_size = Vector2(62.34, 16.185)
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8i3jl")
 text = "x0"
 
-[node name="LeftLabel" type="Label" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer2/CountsHBoxContainer/DeckCounts/GridContainer"]
+[node name="LeftLabel" type="Label" parent="CardManager/UI/Panel/VBoxContainer/MarginContainer2/CountsHBoxContainer/DeckCounts/GridContainer"]
 custom_minimum_size = Vector2(62.34, 16.185)
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8i3jl")
 text = "Left"
 
-[node name="LeftAmount" type="Label" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer2/CountsHBoxContainer/DeckCounts/GridContainer"]
+[node name="LeftAmount" type="Label" parent="CardManager/UI/Panel/VBoxContainer/MarginContainer2/CountsHBoxContainer/DeckCounts/GridContainer"]
 custom_minimum_size = Vector2(62.34, 16.185)
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8i3jl")
 text = "x0"
 
-[node name="RightLabel" type="Label" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer2/CountsHBoxContainer/DeckCounts/GridContainer"]
+[node name="RightLabel" type="Label" parent="CardManager/UI/Panel/VBoxContainer/MarginContainer2/CountsHBoxContainer/DeckCounts/GridContainer"]
 custom_minimum_size = Vector2(62.34, 16.185)
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8i3jl")
 text = "Right"
 
-[node name="RightAmount" type="Label" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer2/CountsHBoxContainer/DeckCounts/GridContainer"]
+[node name="RightAmount" type="Label" parent="CardManager/UI/Panel/VBoxContainer/MarginContainer2/CountsHBoxContainer/DeckCounts/GridContainer"]
 custom_minimum_size = Vector2(62.34, 16.185)
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8i3jl")
 text = "x0"
 
-[node name="MarginContainer" type="MarginContainer" parent="CardManager/MarginContainer/VBoxContainer"]
+[node name="DeckIndicator" type="TextureRect" parent="CardManager/UI/Panel/VBoxContainer/MarginContainer2/CountsHBoxContainer"]
+custom_minimum_size = Vector2(70, 100)
+layout_mode = 2
+texture = SubResource("AtlasTexture_541or")
+
+[node name="HSeparator" type="HSeparator" parent="CardManager/UI/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CardManager/UI/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme_override_constants/margin_bottom = 10
 
-[node name="MainStuff" type="HBoxContainer" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer"]
+[node name="MainStuff" type="HBoxContainer" parent="CardManager/UI/Panel/VBoxContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Hand" type="HBoxContainer" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff"]
+[node name="LeftSpacer" type="Control" parent="CardManager/UI/Panel/VBoxContainer/MarginContainer/MainStuff"]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+
+[node name="Hand" type="HBoxContainer" parent="CardManager/UI/Panel/VBoxContainer/MarginContainer/MainStuff"]
 custom_minimum_size = Vector2(366, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 alignment = 1
 
-[node name="Discard" type="HBoxContainer" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="Deck" type="HBoxContainer" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="HBoxContainer" type="VBoxContainer" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff"]
+[node name="RightSpacer" type="Control" parent="CardManager/UI/Panel/VBoxContainer/MarginContainer/MainStuff"]
+custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 
-[node name="PlayCards" type="Button" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer"]
-visible = false
-custom_minimum_size = Vector2(108, 50)
+[node name="EndTurn" type="Button" parent="CardManager/UI/Panel/VBoxContainer/MarginContainer/MainStuff"]
+custom_minimum_size = Vector2(80, 50)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 8
 size_flags_vertical = 8
 theme = ExtResource("10_01yge")
-text = "   Play   "
-script = ExtResource("6_8jgbr")
-card_manager_path = NodePath("../../../../../..")
-
-[node name="DiscardCards" type="Button" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer"]
-visible = false
-custom_minimum_size = Vector2(108, 50)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme = ExtResource("10_01yge")
-text = "Discard"
-script = ExtResource("7_po0yu")
-card_manager_path = NodePath("../../../../../..")
-
-[node name="EndTurn" type="Button" parent="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer"]
-visible = false
-custom_minimum_size = Vector2(108, 50)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme = ExtResource("10_01yge")
-text = "End turn"
+text = "END
+TURN"
 script = ExtResource("8_7a370")
 card_manager_path = NodePath("../../../../../..")
+
+[node name="Discard" type="HBoxContainer" parent="CardManager/UI/Panel/VBoxContainer/MarginContainer/MainStuff"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Deck" type="HBoxContainer" parent="CardManager/UI/Panel/VBoxContainer/MarginContainer/MainStuff"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="Notifications" type="VBoxContainer" parent="CardManager"]
 anchors_preset = 8
@@ -688,8 +757,8 @@ position = Vector2(40, -344)
 [node name="Hazard9" parent="Section3Walls" instance=ExtResource("12_2xkfn")]
 position = Vector2(8, -344)
 
-[connection signal="button_down" from="CardManager/MarginContainer/VBoxContainer2/ExitButton" to="." method="_on_exit_button_button_down"]
-[connection signal="button_down" from="CardManager/MarginContainer/VBoxContainer2/HelpButton" to="." method="_on_help_button_button_down"]
-[connection signal="button_up" from="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/PlayCards" to="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/PlayCards" method="_on_button_up"]
-[connection signal="button_up" from="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/DiscardCards" to="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/DiscardCards" method="_on_button_up"]
-[connection signal="button_up" from="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/EndTurn" to="CardManager/MarginContainer/VBoxContainer/MarginContainer/MainStuff/HBoxContainer/EndTurn" method="_on_button_up"]
+[connection signal="button_down" from="CardManager/UI/VBoxContainer2/ExitButton" to="." method="_on_exit_button_button_down"]
+[connection signal="button_down" from="CardManager/UI/VBoxContainer2/HelpButton" to="." method="_on_help_button_button_down"]
+[connection signal="button_up" from="CardManager/UI/Panel/VBoxContainer/MarginContainer2/CountsHBoxContainer/HBoxContainer/PlayCards" to="CardManager/UI/Panel/VBoxContainer/MarginContainer2/CountsHBoxContainer/HBoxContainer/PlayCards" method="_on_button_up"]
+[connection signal="button_up" from="CardManager/UI/Panel/VBoxContainer/MarginContainer2/CountsHBoxContainer/HBoxContainer/DiscardCards" to="CardManager/UI/Panel/VBoxContainer/MarginContainer2/CountsHBoxContainer/HBoxContainer/DiscardCards" method="_on_button_up"]
+[connection signal="button_up" from="CardManager/UI/Panel/VBoxContainer/MarginContainer/MainStuff/EndTurn" to="CardManager/UI/Panel/VBoxContainer/MarginContainer/MainStuff/EndTurn" method="_on_button_up"]

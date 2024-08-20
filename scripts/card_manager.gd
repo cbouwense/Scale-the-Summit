@@ -55,16 +55,10 @@ func start_game() -> void:
 	enable_actions()
 	
 func enable_actions():
-	hand.visible = true
-	play_cards_button.visible = true
-	discard_button.visible = true
-	end_turn_button.visible = true
+	$UI.visible = true
 
 func disable_actions():
-	hand.visible = false
-	play_cards_button.visible = false
-	discard_button.visible = false
-	end_turn_button.visible = false
+	$UI.visible = false
 
 func initialize_deck():
 	for action in starting_deck:
