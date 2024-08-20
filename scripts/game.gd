@@ -32,7 +32,7 @@ func _input(event):
 func _process(delta):
 	if intro_path_follow and is_intro_running:
 		if intro_path_follow.progress_ratio < 0.99:
-			intro_path_follow.progress_ratio += 1 * delta
+			intro_path_follow.progress_ratio += 0.15 * delta
 		else:
 			main_cam.set_enabled(true)
 			main_cam.make_current()
