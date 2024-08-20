@@ -192,7 +192,8 @@ func end_turn() -> void:
 	end_turn_button.set_disabled(true)
 	
 	# Discard all cards from hand
-	for card in hand.get_children():
+	for card: Card in hand.get_children():
+		card.set_pressed(false)
 		card.is_selected = false
 		card.order_in_selection = 0
 	
@@ -241,7 +242,7 @@ func end_turn() -> void:
 		3:
 			rows_to_rise = 2
 		4:
-			rows_to_rise = 3
+			rows_to_rise = 2
 	lava_layer.position.y -= (16 * rows_to_rise)
 	await get_tree().create_timer(.5).timeout # Sleep
 	
@@ -264,7 +265,7 @@ func draw_full_hand():
 
 func reset() -> void:
 	# Get all of the cards from the hand and put them back into the deck
-	for card in hand.get_children():
+	for card: Card in hand.get_children():
 		card.reparent(deck)
 	for card in discard.get_children():
 		card.reparent(deck)

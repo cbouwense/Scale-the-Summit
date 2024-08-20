@@ -586,6 +586,10 @@ player_path = NodePath("../Player")
 position = Vector2(-24, -56)
 card_manager_path = NodePath("../../CardManager")
 
+[node name="Pickup7" parent="Pickups" instance=ExtResource("10_vqq0q")]
+position = Vector2(8, -32)
+card_manager_path = NodePath("../../CardManager")
+
 [node name="Pickup2" parent="Pickups" instance=ExtResource("10_vqq0q")]
 position = Vector2(40, -56)
 card_manager_path = NodePath("../../CardManager")
