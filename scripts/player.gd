@@ -49,3 +49,9 @@ func do_something(action: g.CardAction):
 		g.CardAction.RIGHT:
 			if !ray_cast_2d_right.is_colliding():
 				position.x += 16
+
+func play_animation():
+	$AnimatedSprite2D.play("default")
+
+func stop_animation():
+	$AnimatedSprite2D.stop()

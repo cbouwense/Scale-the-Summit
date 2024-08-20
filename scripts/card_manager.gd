@@ -159,6 +159,7 @@ func check_for_hand(hand):
 
 func play_cards():
 	play_cards_button.set_disabled(true)
+	player.play_animation()
 	var selected_cards = hand.get_children().filter(func(c: Card): return c.is_selected)
 	selected_cards.sort_custom(func(a: Card, b: Card): return a.order_in_selection < b.order_in_selection)
 	for card in selected_cards:
@@ -170,6 +171,7 @@ func play_cards():
 	for i in range(draws):
 		draw_card()
 		await get_tree().create_timer(.2).timeout # Sleep
+	player.stop_animation()
 	play_cards_button.set_disabled(false)
 
 func discard_cards() -> void:
