@@ -95,8 +95,8 @@ func draw_card(index = null):
 func check_for_hand(hand):
 	# draw 1 for pair
 	# draw 2 for two pair
-	# draw 3 for three of a kind
-	# draw 4 for four of a kind
+	# draw 2 for three of a kind
+	# draw 3 for four of a kind
 	# draw 5 for full house
 	var counts = {}
 	
@@ -120,6 +120,8 @@ func check_for_hand(hand):
 		elif counts[key] == 2:
 			has_pair = true
 			pairs += 1
+		elif counts[key] == 4:
+			has_four_of_a_kind = true
 	
 	var draws = 0
 	# Determine hand type
@@ -128,12 +130,12 @@ func check_for_hand(hand):
 		draws = 5
 		await get_tree().create_timer(0.2).timeout
 	elif has_four_of_a_kind:
-		display_notification("FOUR OF A KIND!\n+4 Draw")
-		draws = 4
+		display_notification("FOUR OF A KIND!\n+3 Draw")
+		draws = 3
 		await get_tree().create_timer(0.2).timeout
 	elif has_three_of_a_kind:
-		display_notification("THREE OF A KIND!\n+3 Draw")
-		draws = 3
+		display_notification("THREE OF A KIND!\n+2 Draw")
+		draws = 2
 		await get_tree().create_timer(0.2).timeout
 	elif pairs == 2:
 		display_notification("TWO PAIR!\n+2 Draw")
@@ -231,8 +233,8 @@ func end_turn() -> void:
 		enemy.attack()
 	await get_tree().create_timer(.5).timeout # Sleep
 	
-	# Move the lava up (0 tiles on level 1, 1 on level 2, etc)
-	lava_layer.position.y -= (16 * (g.level - 1))
+	# Move the lava up (1 tiles on level 1, 2 on level 2, etc)
+	lava_layer.position.y -= (16 * (g.level))
 	await get_tree().create_timer(.5).timeout # Sleep
 	
 	draw_full_hand()

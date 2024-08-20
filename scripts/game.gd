@@ -46,6 +46,9 @@ func lose():
 	$Wind.queue_free()
 	$Pickups.queue_free()
 	$Hazards.queue_free()
+	$Section2Walls.queue_free()
+	$Enemies.queue_free()
+	$Section3Walls.queue_free()
 	var result_instance = result_scene.instantiate()
 	result_instance.result = "YOU DIED"
 	card_manager.add_child(result_instance)
@@ -57,6 +60,9 @@ func win():
 	$Wind.queue_free()
 	$Pickups.queue_free()
 	$Hazards.queue_free()
+	$Section2Walls.queue_free()
+	$Enemies.queue_free()
+	$Section3Walls.queue_free()
 	var result_instance = result_scene.instantiate()
 	result_instance.result = "YOU WIN"
 	card_manager.add_child(result_instance)
