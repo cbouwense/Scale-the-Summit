@@ -197,6 +197,7 @@ intro_path_follow = NodePath("Path2D/PathFollow2D")
 
 [node name="Player" parent="." instance=ExtResource("1_fxfde")]
 z_index = 2
+position = Vector2(8, 0)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 enabled = false
@@ -665,15 +666,15 @@ position = Vector2(24, -296)
 player_path = NodePath("../../Player")
 
 [node name="Enemy4" parent="Enemies" instance=ExtResource("17_iy6hs")]
-position = Vector2(8, -368)
+position = Vector2(8, -376)
 player_path = NodePath("../../Player")
 
 [node name="Enemy5" parent="Enemies" instance=ExtResource("17_iy6hs")]
-position = Vector2(-8, -384)
+position = Vector2(-8, -392)
 player_path = NodePath("../../Player")
 
 [node name="Enemy6" parent="Enemies" instance=ExtResource("17_iy6hs")]
-position = Vector2(24, -384)
+position = Vector2(24, -392)
 player_path = NodePath("../../Player")
 
 [node name="Section3Walls" type="Node2D" parent="."]

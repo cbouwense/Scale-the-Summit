@@ -202,6 +202,9 @@ func end_turn() -> void:
 	await avalanche.dump()
 	await get_tree().create_timer(.5).timeout # Sleep
 	
+	await wind.gust()
+	await get_tree().create_timer(.5).timeout # Sleep
+	
 	# Move avalanche to a random spot
 	var x_diff
 	if g.level == 1:
@@ -213,11 +216,6 @@ func end_turn() -> void:
 	elif g.level == 4:
 		x_diff = randi_range(-1, 1)
 	avalanche.position.x = (16 * x_diff) + 8
-	await get_tree().create_timer(.5).timeout # Sleep
-	
-	# Gust the wind
-	await wind.gust()
-	await get_tree().create_timer(.5).timeout # Sleep
 		
 	# Move wind to a random spot
 	var y_diff

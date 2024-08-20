@@ -9,7 +9,8 @@ enum CardAction {
 	RIGHT
 }
 
-const player_starting_position = Vector2(8, 0)
+#const player_starting_position = Vector2(8, 0)
+const player_starting_position = Vector2(8, -500)
 const lava_starting_position = Vector2(0, 32)
 
 static var discards_left_this_turn = 3

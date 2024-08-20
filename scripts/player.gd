@@ -5,6 +5,8 @@ class_name Player extends Node2D
 @onready var ray_cast_2d_left: RayCast2D = $Area2D/CollisionShape2D/RayCast2DLeft
 @onready var ray_cast_2d_right: RayCast2D = $Area2D/CollisionShape2D/RayCast2DRight
 
+var game_is_won = false
+
 func _ready():
 	position = g.player_starting_position
 
@@ -21,11 +23,13 @@ func _process(delta):
 		elif position.y > -416:
 			new_level = 3
 			text = "Reached level 3!\nThe blizzard doubles it pace..."
-		elif position.y > 576:
+		elif position.y > -576:
 			new_level = 4
 			text = "Reached level 4!\nGood luck..."
 		else:
-			print("win")
+			if !game_is_won:
+				game_is_won = true
+				$"..".win()
 		
 		if g.level < new_level:
 			await $"../CardManager".display_notification(text, 5)
@@ -45,7 +49,3 @@ func do_something(action: g.CardAction):
 		g.CardAction.RIGHT:
 			if !ray_cast_2d_right.is_colliding():
 				position.x += 16
-
-	# Did we reach the top?
-	if position.y <= -592:
-		print("win")
