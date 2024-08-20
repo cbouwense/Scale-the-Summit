@@ -234,7 +234,15 @@ func end_turn() -> void:
 	await get_tree().create_timer(.5).timeout # Sleep
 	
 	# Move the lava up (1 tiles on level 1, 2 on level 2, etc)
-	lava_layer.position.y -= (16 * (g.level))
+	var rows_to_rise = 0
+	match g.level:
+		1, 2:
+			rows_to_rise = 1
+		3:
+			rows_to_rise = 2
+		4:
+			rows_to_rise = 3
+	lava_layer.position.y -= (16 * rows_to_rise)
 	await get_tree().create_timer(.5).timeout # Sleep
 	
 	draw_full_hand()
